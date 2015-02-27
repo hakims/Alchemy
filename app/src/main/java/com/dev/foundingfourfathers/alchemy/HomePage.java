@@ -1,33 +1,59 @@
 package com.dev.foundingfourfathers.alchemy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 
-public class HomePage extends ActionBarActivity {
+public class HomePage extends ActionBarActivity implements ExampleItemFragment.OnFragmentInteractionListener {
 
-    private Button next;
+    private Button b_toBasket;
+    private Button b_toBrowseCocktails;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        next = (Button) findViewById(R.id.b_toBasket);
-        next.setOnClickListener(new View.OnClickListener() {
+
+
+    //Initialize Buttons
+        b_toBasket = (Button) findViewById(R.id.b_toBasket);
+        b_toBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
             }
         });
+
+        b_toBrowseCocktails = (Button) findViewById(R.id.b_browseCocktails);
+        b_toBrowseCocktails.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View view)
+            {
+                Intent myIntent = new Intent(view.getContext(), BrowseCocktailsPage.class);
+                startActivityForResult(myIntent,0);
+            }
+
+        });
+
+
+
     }
 
+    public void onFragmentInteraction(String id){
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
