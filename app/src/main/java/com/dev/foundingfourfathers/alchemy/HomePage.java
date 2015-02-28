@@ -15,7 +15,7 @@ import java.util.List;
 public class HomePage extends ActionBarActivity {
 
     AlchemyDB database;
-    private Button next;
+    private Button b_toBasket;
     private Button dbTest;
 
     @Override
@@ -26,8 +26,8 @@ public class HomePage extends ActionBarActivity {
         database = new AlchemyDB(getApplicationContext());
 
 
-        next = (Button) findViewById(R.id.b_toBasket);
-        next.setOnClickListener(new View.OnClickListener() {
+        b_toBasket = (Button) findViewById(R.id.b_toBasket);
+        b_toBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BasketPage.class);
