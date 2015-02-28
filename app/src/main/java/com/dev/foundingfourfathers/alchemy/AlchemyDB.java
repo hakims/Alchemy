@@ -1,13 +1,24 @@
 package com.dev.foundingfourfathers.alchemy;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alihakimi on 2/27/2015.
+ *
+ * note: use sqlzoo.net to mess around with sql
+ * resources: http://www.vogella.com/tutorials/AndroidSQLite/article.html
+ *
+ *
  */
 public class AlchemyDB extends SQLiteOpenHelper{
 
@@ -26,7 +37,7 @@ public class AlchemyDB extends SQLiteOpenHelper{
     /**
      * COCKTAIL table: Stores Cocktail information
      */
-    private static final String ALCHEMY_TABLE = "AlchemyTable";
+    private static final String ALCHEMY_TABLE = "alchemy_table";
     private static final String ALCHEMY_COL_ALCOHOLS = "users_alcohols";     /// Holds what alcohols the user has in their basket
     private static final String ALCHEMY_COL_MIXERS = "users_mixers";         /// Holds what mixers the user has in their basket
     private static final String ALCHEMY_COL_COCKTAILS = "cocktails_list";	  /// Holds all the possible mixed drinks
@@ -51,11 +62,10 @@ public class AlchemyDB extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-
         String sql1 = 	"CREATE TABLE " + ALCHEMY_TABLE + "(" +
-                ALCHEMY_COL_ALCOHOLS + " DOUBLE NOT NULL, " +
-                ALCHEMY_COL_MIXERS + " DOUBLE NOT NULL, " +
-                ALCHEMY_COL_COCKTAILS + " DOUBLE NOT NULL " +
+                ALCHEMY_COL_ALCOHOLS + " VARCHAR(50), " +
+                ALCHEMY_COL_MIXERS + " VARCHAR(50), " +
+                ALCHEMY_COL_COCKTAILS + " VARCHAR(50) " +
                 ");";
 
 
@@ -78,11 +88,71 @@ public class AlchemyDB extends SQLiteOpenHelper{
 
     }
 
+    /*
+    * Insert a users alchol into the db
+    *
+    * When you get time, upgrade this function to be "insertIngredient". Create an abstract class "Ingredient" that can either be an alchol or mixer, then use that functionality to
+    * determine if you need to add to the alchols column or the mixers column
+    *
+    * */
+    public void insertAlcohol (String alcohol) {
+        ContentValues values = null;
 
-    /**
-     * Upgrades the database.
-     */
+        try {
+            db.beginTransaction();
+            values = new ContentValues();
+            values.put(ALCHEMY_COL_ALCOHOLS, alcohol);
+            db.insert(ALCHEMY_TABLE, null, values);
+            values.clear();
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            Log.i(getClass().getSimpleName(), " Inserted Alcohol: " + alcohol);
 
+        } catch (SQLException e) {
+            Log.e(getClass().getSimpleName(), e.getMessage());
+        }
+    }
+
+    public String getAllAlcohols () {
+
+        String alcohol;
+
+        String sql = "SELECT " + ALCHEMY_COL_ALCOHOLS  + " FROM " + ALCHEMY_TABLE;
+
+        //** Never use rawQuery
+        try {
+            //Cursor cursor = db.query(ALCHEMY_TABLE, new String[]{ALCHEMY_COL_ALCOHOLS}, null, null, null, null, null);
+            Cursor cursor = db.rawQuery(sql, null);
+
+            cursor.moveToFirst();
+            if (cursor.getCount() <=0)
+            {
+                Log.i(getClass().getSimpleName(), sql);
+                return null;
+            }
+            else
+            {
+                    alcohol = cursor.getString(0);
+                    Log.i(getClass().getSimpleName(), "Iterating over: " + alcohol);
+
+            }
+            cursor.close();
+
+            return alcohol;
+
+
+        }catch (SQLException e) {
+            Log.e(getClass().getSimpleName(), "Unable to process SQL: " + sql);
+            return null;
+        } catch (Exception e) {
+            Log.e(getClass().getSimpleName(), "Unhandled exception SQL:" + sql);
+            return null;
+        }
+
+
+    }
+
+    /** Upgrades the database.  */
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)  {

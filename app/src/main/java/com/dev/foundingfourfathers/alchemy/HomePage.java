@@ -7,16 +7,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 
 public class HomePage extends ActionBarActivity {
 
+    AlchemyDB database;
     private Button next;
+    private Button dbTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        database = new AlchemyDB(getApplicationContext());
+
 
         next = (Button) findViewById(R.id.b_toBasket);
         next.setOnClickListener(new View.OnClickListener() {
@@ -24,6 +32,20 @@ public class HomePage extends ActionBarActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
+            }
+        });
+
+
+        dbTest = (Button) findViewById(R.id.b_dbTest);
+        dbTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                database.insertAlcohol("Absolut Vodka");
+                String temp = database.getAllAlcohols();
+
+
+                Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
+
             }
         });
     }
