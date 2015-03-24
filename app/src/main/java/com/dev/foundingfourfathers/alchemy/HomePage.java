@@ -17,6 +17,9 @@ public class HomePage extends ActionBarActivity {
     AlchemyDB database;
     private Button b_toBasket;
     private Button dbTest;
+    private Button b_make_drink;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,15 @@ public class HomePage extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), BasketPage.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        b_make_drink = (Button) findViewById(R.id.button_make_drink);
+        b_make_drink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), PossibleDrinks.class);
                 startActivityForResult(myIntent, 0);
             }
         });

@@ -20,6 +20,10 @@
             android:name=".BasketPage"
             android:label="@string/title_activity_basket_page" >
         </activity>
+        <activity
+            android:name=".PossibleDrinks"
+            android:label="@string/title_activity_possible_drinks" >
+        </activity>
     </application>
 
 </manifest>
