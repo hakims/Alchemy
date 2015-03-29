@@ -49,7 +49,7 @@ public class HomePage extends ActionBarActivity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), PossibleDrinks.class);
+                Intent myIntent = new Intent(view.getContext(), LayoutChangesActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });

@@ -9,6 +9,8 @@
     <TextView android:id="@+id/section_label" android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,4 +20,26 @@
         android:layout_toRightOf="@+id/section_label"
         android:layout_toEndOf="@+id/section_label" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:id="@+id/b_add_drink"
+        android:layout_alignTop="@+id/section_label"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:id="@+id/b_remove_drink"
+        android:layout_alignTop="@+id/b_add_drink"
+        android:layout_toRightOf="@+id/b_add_drink"
+        android:layout_toEndOf="@+id/b_add_drink"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp" />
+
 </RelativeLayout>
+
+

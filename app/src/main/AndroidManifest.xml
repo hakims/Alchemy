@@ -24,6 +24,10 @@
             android:name=".PossibleDrinks"
             android:label="Possible Drinks" >
         </activity>
+        <activity
+            android:name=".LayoutChangesActivity"
+            android:label="Please Edit your Basket" >
+        </activity>
     </application>
 
 </manifest>
