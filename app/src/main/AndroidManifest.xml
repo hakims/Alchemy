@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".PossibleDrinks"
-            android:label="@string/title_activity_possible_drinks" >
+            android:label="Possible Drinks" >
         </activity>
     </application>
 

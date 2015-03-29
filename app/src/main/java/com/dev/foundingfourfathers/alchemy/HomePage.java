@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public class HomePage extends ActionBarActivity {
     private Button b_toBasket;
     private Button dbTest;
     private Button b_make_drink;
+    ImageView logo;
+
 
 
 
@@ -27,6 +30,10 @@ public class HomePage extends ActionBarActivity {
         setContentView(R.layout.activity_home_page);
 
         database = new AlchemyDB(getApplicationContext());
+
+        logo = (ImageView) findViewById(R.id.image_logo);
+        logo.setImageResource(R.drawable.alchemy_logo);
+
 
 
         b_toBasket = (Button) findViewById(R.id.b_toBasket);

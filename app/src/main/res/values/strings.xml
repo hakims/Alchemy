@@ -9,5 +9,9 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="title_activity_possible_drinks">title_activity_possible_drinks</string>
+    <string name="title_Alcohol">Alcohol</string>
+    <string name="title_Mixers">Mixers</string>
+    <string name="title_Extras">Extras</string>
+
 
 </resources>
