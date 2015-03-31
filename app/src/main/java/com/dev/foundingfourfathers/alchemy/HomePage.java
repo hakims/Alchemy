@@ -3,14 +3,19 @@ package com.dev.foundingfourfathers.alchemy;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
+import io.realm.RealmObject;
 import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 
 public class HomePage extends ActionBarActivity {
@@ -35,6 +40,9 @@ public class HomePage extends ActionBarActivity {
         logo.setImageResource(R.drawable.alchemy_logo);
 
 
+       //comment this line out for production versions of the Database
+       Realm.deleteRealmFile(this);
+
 
         b_toBasket = (Button) findViewById(R.id.b_toBasket);
         b_toBasket.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +58,9 @@ public class HomePage extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), LayoutChangesActivity.class);
-                startActivityForResult(myIntent, 0);
+                //startActivityForResult(myIntent, 0);
+                startActivity(myIntent);
+
             }
         });
 
@@ -62,6 +72,28 @@ public class HomePage extends ActionBarActivity {
                 database.insertAlcohol("Absolut Vodka");
                 String temp = database.getAllAlcohols();
 
+                Realm realm = Realm.getInstance(getApplicationContext());
+                realm.beginTransaction();
+                Alcohol testBooze = realm.createObject(Alcohol.class);
+                testBooze.setType("Beer");
+               // Alcohol testBooze1 = realm.createObject(Whiskey.class);
+                realm.commitTransaction();
+
+                Log.i(getClass().getSimpleName(), "Path: " + realm.getPath());
+
+                RealmQuery<Alcohol> query = realm.where(Alcohol.class);
+                RealmResults<Alcohol> result = query.findAll();
+
+                //RealmResults will be size 0 if the query finds no matches
+                if(result.size() != 0)
+                {
+                    for(Alcohol alcohol: result)
+                    {
+                        String boozeType = alcohol.getType();
+                        Log.i(getClass().getSimpleName(), "Booze: " + boozeType);
+                        Toast.makeText(getApplicationContext(), "RealmDB Test Should return:  " + boozeType, Toast.LENGTH_LONG).show();
+                    }
+                }
 
                 Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
 
