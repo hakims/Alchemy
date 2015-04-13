@@ -28,6 +28,10 @@
             android:name=".LayoutChangesActivity"
             android:label="Please Edit your Basket" >
         </activity>
+        <activity
+            android:name=".SpinnerTest"
+            android:label="Spinner Test" >
+        </activity>
     </application>
 
 </manifest>

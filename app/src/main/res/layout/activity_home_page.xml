@@ -28,6 +28,16 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Go To Spinner"
+        android:id="@+id/b_to_Spinner"
+        android:layout_below="@+id/button_make_drink"
+        android:layout_alignRight="@+id/button_make_drink"
+        android:layout_alignEnd="@+id/button_make_drink"
+        android:layout_marginTop="44dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="What Drinks Can I Make?"
         android:id="@+id/button_make_drink"
         android:layout_centerVertical="true"
