@@ -53,7 +53,14 @@ public class LayoutChangesActivity extends Activity {
             case R.id.action_add_item:
                 // Hide the "empty" view since there is now at least one item in the list.
                 findViewById(android.R.id.empty).setVisibility(View.GONE);
-                addItem();
+
+                //THIS IS WHERE YOU MAKE THE ADD BUTTON DO STUFF, IT CALLS ADDITEM()
+
+
+                //Intent myIntent = new Intent(view.getContext(), SpinnerTest.class);
+                //startActivityForResult(myIntent, 0);
+
+                //addItem();
                 return true;
         }
 
