@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol"></item>
+    <item android:id="@+id/Mixers" android:title="@string/title_Mixers"></item>
+    <item android:id="@+id/Extras" android:title="@string/title_Extras"></item>
+</menu>

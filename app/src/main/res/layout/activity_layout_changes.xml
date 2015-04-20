@@ -48,4 +48,11 @@
         android:text="@string/message_empty_layout_changes"
         android:textColor="?android:textColorSecondary" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Drink"
+        android:id="@+id/selectdrinkmenu"
+        android:layout_gravity="right|top" />
+
 </FrameLayout>

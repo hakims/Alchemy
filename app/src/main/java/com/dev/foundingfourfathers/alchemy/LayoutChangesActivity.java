@@ -6,10 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.PopupMenu.OnMenuItemClickListener;
+import android.widget.Toast;
 
 /**
  * This sample demonstrates how to use system-provided, automatic layout transitions. Layout
@@ -25,19 +30,45 @@ public class LayoutChangesActivity extends Activity {
      * is a {@link android.widget.LinearLayout}.
      */
     private ViewGroup mContainerView;
+    private Button b_selectdrinkmenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_changes);
 
+
+        b_selectdrinkmenu = (Button) findViewById(R.id.selectdrinkmenu);
+        b_selectdrinkmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(getBaseContext(), view);
+                popup.getMenuInflater().inflate(R.menu.drinkselector, popup.getMenu());
+                popup.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        Toast.makeText(getBaseContext(), "You selected the action : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+                popup.show();
+            }
+        });
+
+
+
         mContainerView = (ViewGroup) findViewById(R.id.container);
     }
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.activity_layout_changes, menu);
+
         return true;
     }
 
@@ -57,10 +88,12 @@ public class LayoutChangesActivity extends Activity {
                 //THIS IS WHERE YOU MAKE THE ADD BUTTON DO STUFF, IT CALLS ADDITEM()
 
 
-                //Intent myIntent = new Intent(view.getContext(), SpinnerTest.class);
-                //startActivityForResult(myIntent, 0);
 
-                //addItem();
+
+                addItem();
+
+
+
                 return true;
         }
 
@@ -68,6 +101,7 @@ public class LayoutChangesActivity extends Activity {
     }
 
     private void addItem() {
+
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.list_item_example, mContainerView, false);
@@ -96,6 +130,8 @@ public class LayoutChangesActivity extends Activity {
         // adding this view is automatically animated.
         mContainerView.addView(newView, 0);
     }
+
+
 
     /**
      * A static list of country names.

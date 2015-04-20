@@ -41,6 +41,8 @@
     <string name="action_finish">Finish</string>
     <string name="action_info">Photo info</string>
     <string name="action_photo">View photo</string>
+    <string name="item1">item1</string>
+    <string name="item2">item2</string>
 
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>
