@@ -17,8 +17,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".BasketPage"
-            android:label="@string/title_activity_basket_page" >
+            android:name=".DrinkViewer"
+            android:label="DrinkViewer" >
         </activity>
 
 
@@ -27,7 +27,7 @@
             android:label="Spinner Test" >
         </activity>
         <activity
-            android:name=".DrinkMaker"
+            android:name=".BasketPage"
             android:label="Please Edit Your Basket" >
         </activity>
     </application>

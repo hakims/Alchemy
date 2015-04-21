@@ -2,7 +2,6 @@ package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
-import java.util.List;
 
 
 public class HomePage extends Activity {
@@ -60,7 +57,7 @@ public class HomePage extends Activity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), DrinkMaker.class);
+                Intent myIntent = new Intent(view.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
             }
         });
