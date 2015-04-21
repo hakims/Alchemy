@@ -20,17 +20,15 @@
             android:name=".BasketPage"
             android:label="@string/title_activity_basket_page" >
         </activity>
-        <activity
-            android:name=".PossibleDrinks"
-            android:label="Possible Drinks" >
-        </activity>
-        <activity
-            android:name=".DrinkMaker"
-            android:label="Please Edit your Basket" >
-        </activity>
+
+
         <activity
             android:name=".SpinnerTest"
             android:label="Spinner Test" >
+        </activity>
+        <activity
+            android:name=".DrinkMaker"
+            android:label="Please Edit Your Basket" >
         </activity>
     </application>
 

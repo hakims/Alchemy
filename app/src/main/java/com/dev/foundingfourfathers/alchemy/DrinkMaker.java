@@ -1,111 +1,48 @@
 package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.SubMenu;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.PopupMenu.OnMenuItemClickListener;
 import android.widget.Toast;
 
-/**
- * This sample demonstrates how to use system-provided, automatic layout transitions. Layout
- * transitions are animations that occur when views are added to, removed from, or changed within
- * a {@link ViewGroup}.
- *
- * <p>In this sample, the user can add rows to and remove rows from a vertical
- * {@link android.widget.LinearLayout}.</p>
- */
+
+
 public class DrinkMaker extends Activity {
     /**
      * The container view which has layout change animations turned on. In this sample, this view
      * is a {@link android.widget.LinearLayout}.
      */
-    private ViewGroup mContainerView;
-    private Button b_selectdrinkmenu;
-    private static final int SUBMENU1 = 3;
-    private static final int SUBMENU2 = 4;
-    private static final int GROUP1 = 6;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_layout_changes);
-
-
-        b_selectdrinkmenu = (Button) findViewById(R.id.selectdrinkmenu);
-        b_selectdrinkmenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                PopupMenu popup = new PopupMenu(getBaseContext(), view);
-                popup.getMenuInflater().inflate(R.menu.drinkselector, popup.getMenu());
-                popup.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(getBaseContext(), "You selected the action : " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                        return true;
-                    }
-                });
-                popup.show();
-            }
-        });
 
 
 
-        mContainerView = (ViewGroup) findViewById(R.id.container);
-    }
+
+
 
 
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-
-        getMenuInflater().inflate(R.menu.activity_layout_changes, menu);
-        SubMenu submenu = menu.addSubMenu(0, Menu.NONE, 1, "Rum");
-        submenu.add("Rum");
-
-        return true;
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_drinkselector, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
         switch (item.getItemId()) {
-            case android.R.id.home:
-                // Navigate "up" the demo structure to the launchpad activity.
-                // See http://developer.android.com/design/patterns/navigation.html for more.
-                NavUtils.navigateUpTo(this, new Intent(this, HomePage.class));
-                return true;
-
             case R.id.action_add_item:
-                // Hide the "empty" view since there is now at least one item in the list.
-                findViewById(android.R.id.empty).setVisibility(View.GONE);
-
-                //THIS IS WHERE YOU MAKE THE ADD BUTTON DO STUFF, IT CALLS ADDITEM()
-
-
-
-
-                addItem();
-
-
-
+                Toast.makeText(getApplicationContext(), "HELLO!", Toast.LENGTH_SHORT).show();
                 return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
+
 
     private void addItem() {
 

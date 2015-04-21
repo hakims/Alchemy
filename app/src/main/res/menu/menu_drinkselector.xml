@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:Alchemy="http://schemas.android.com/apk/res-auto" >>
+    <item android:id="@+id/action_add_item"
+        android:title="@string/action_add_item"
+        android:icon="@drawable/ic_action_new"
+        android:showAsAction="ifRoom">
+        <menu>
+            <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol">
+            <menu>
+                <item android:id="@+id/ginsubmenu"
+                    android:title="Gin"/>
+                <item android:id="@+id/rumsubmenu"
+                    android:title="Rum"/>
+                <item android:id="@+id/vodkasubmenu"
+                    android:title="Vodka"/>
+            </menu>
+            </item>
+            <item android:id="@+id/Mixers" android:title="@string/title_Mixers"/>
+            <item android:id="@+id/Extras" android:title="@string/title_Extras"/>
+
+        </menu>
+    </item>
+
+
+</menu>
