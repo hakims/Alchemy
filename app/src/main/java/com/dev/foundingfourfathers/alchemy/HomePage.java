@@ -60,7 +60,7 @@ public class HomePage extends Activity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), LayoutChangesActivity.class);
+                Intent myIntent = new Intent(view.getContext(), DrinkMaker.class);
                 startActivityForResult(myIntent, 0);
             }
         });

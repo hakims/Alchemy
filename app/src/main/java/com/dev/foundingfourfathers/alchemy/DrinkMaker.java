@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -24,13 +25,16 @@ import android.widget.Toast;
  * <p>In this sample, the user can add rows to and remove rows from a vertical
  * {@link android.widget.LinearLayout}.</p>
  */
-public class LayoutChangesActivity extends Activity {
+public class DrinkMaker extends Activity {
     /**
      * The container view which has layout change animations turned on. In this sample, this view
      * is a {@link android.widget.LinearLayout}.
      */
     private ViewGroup mContainerView;
     private Button b_selectdrinkmenu;
+    private static final int SUBMENU1 = 3;
+    private static final int SUBMENU2 = 4;
+    private static final int GROUP1 = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +71,10 @@ public class LayoutChangesActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
+
         getMenuInflater().inflate(R.menu.activity_layout_changes, menu);
+        SubMenu submenu = menu.addSubMenu(0, Menu.NONE, 1, "Rum");
+        submenu.add("Rum");
 
         return true;
     }
@@ -102,6 +109,7 @@ public class LayoutChangesActivity extends Activity {
 
     private void addItem() {
 
+        /*
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.list_item_example, mContainerView, false);
@@ -129,16 +137,12 @@ public class LayoutChangesActivity extends Activity {
         // Because mContainerView has android:animateLayoutChanges set to true,
         // adding this view is automatically animated.
         mContainerView.addView(newView, 0);
+        */
     }
 
 
 
-    /**
-     * A static list of country names.
-     */
-    private static final String[] COUNTRIES = new String[]{
-            "Belgium", "France", "Italy", "Germany", "Spain",
-            "Austria", "Russia", "Poland", "Croatia", "Greece",
-            "Ukraine",
-    };
+
+
+
 }
