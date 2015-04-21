@@ -4,21 +4,38 @@
         android:title="@string/action_add_item"
         android:icon="@drawable/ic_action_new"
         android:showAsAction="ifRoom">
+
         <menu>
             <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol">
             <menu>
-                <item android:id="@+id/ginsubmenu"
-                    android:title="Gin"/>
-                <item android:id="@+id/rumsubmenu"
-                    android:title="Rum"/>
-                <item android:id="@+id/vodkasubmenu"
-                    android:title="Vodka"/>
+                <item android:id="@+id/hardalcohol" android:title="Hard Alcohol">
+                    <menu>
+                        <item android:id="@+id/Rum" android:title="Rum"/>
+                        <item android:id="@+id/Liquer" android:title="Liquer"/>
+                        <item android:id="@+id/Whiskey" android:title="Whiskey"/>
+                        <item android:id="@+id/Vodka" android:title="Vodka"/>
+                    </menu>
+                </item>
+
+
+
+                <item android:id="@+id/lightalcohol" android:title="Light Alcohol">
+                    <menu>
+                        <item android:id="@+id/Beer" android:title="Beer"/>
+                        <item android:id="@+id/Wine" android:title="Wine"/>
+                    </menu>
+                </item>
+
             </menu>
             </item>
+
+
+
             <item android:id="@+id/Mixers" android:title="@string/title_Mixers"/>
             <item android:id="@+id/Extras" android:title="@string/title_Extras"/>
 
         </menu>
+
     </item>
 
 
