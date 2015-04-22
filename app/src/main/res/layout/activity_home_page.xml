@@ -15,7 +15,9 @@
         android:id="@+id/b_toBasket"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/b_dbTest"
-        android:layout_alignStart="@+id/b_dbTest" />
+        android:layout_alignStart="@+id/b_dbTest"
+        android:layout_alignRight="@+id/b_dbTest"
+        android:layout_alignEnd="@+id/b_dbTest" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,9 +33,8 @@
         android:text="Go To Spinner"
         android:id="@+id/b_to_Spinner"
         android:layout_below="@+id/button_make_drink"
-        android:layout_alignRight="@+id/button_make_drink"
-        android:layout_alignEnd="@+id/button_make_drink"
-        android:layout_marginTop="44dp" />
+        android:layout_alignLeft="@+id/b_dbTest"
+        android:layout_alignStart="@+id/b_dbTest" />
 
     <Button
         android:layout_width="wrap_content"
