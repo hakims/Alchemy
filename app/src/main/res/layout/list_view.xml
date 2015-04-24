@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
 
-    <ListView
-        android:id="@+id/hardAlcoholList"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:padding="10dp"
+        android:text="@string/text" android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/findSelected"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/hard_alcohol_array"
-    />
+        android:text="Find hard alcohols that are selected" />
+
+    <ListView android:id="@+id/hardAlcoholListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 </LinearLayout>
+
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!-->-->
+
+    <!--<Button-->
+        <!--android:id="@+id/findSelected"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Find hard alcohols that are Selected"-->
+        <!--/>-->
+
+    <!--<ListView-->
+        <!--android:id="@+id/hardAlcoholListView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:entries="@array/hard_alcohol_array"-->
+    <!--/>-->
+
+<!--</LinearLayout>-->

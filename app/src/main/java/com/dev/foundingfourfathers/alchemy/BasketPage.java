@@ -50,7 +50,7 @@ public class BasketPage extends Activity {
                 return true;
             case R.id.hardalcohol:
 //                Toast.makeText(getApplicationContext(), "Hard Alcohol!!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BasketPage.this, ListViewActivity.class);
+                Intent intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
                 startActivity(intent);
                 return true;
 //            case R.id.Rum:

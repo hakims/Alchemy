@@ -13,6 +13,12 @@
     <string name="title_Mixers">Mixers</string>
     <string name="title_Extras">Extras</string>
 
+    <string name="text">
+        Hard Alcohols!
+     </string>
+
+
+
     <string-array name="hard_alcohol_array">
         <item>Tequila</item>
         <item>Rum</item>
