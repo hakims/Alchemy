@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 public class BasketPage extends Activity {
     /**
      * The container view which has layout change animations turned on. In this sample, this view
@@ -47,8 +46,16 @@ public class BasketPage extends Activity {
                 return true;
 
             case R.id.Alcohol:
-
-                Toast.makeText(getApplicationContext(), "Alcohol!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Alcohol", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.hardalcohol:
+//                Toast.makeText(getApplicationContext(), "Hard Alcohol!!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(BasketPage.this, ListViewActivity.class);
+                startActivity(intent);
+                return true;
+//            case R.id.Rum:
+//                Toast.makeText(getApplicationContext(), "Rum!", Toast.LENGTH_SHORT).show();
+//                return true;
                 //addItem();
 
             default:

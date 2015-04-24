@@ -1,5 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:Alchemy="http://schemas.android.com/apk/res-auto" >>
+      xmlns:Alchemy="http://schemas.android.com/apk/res-auto" >>
     <item android:id="@+id/action_add_item"
         android:title="@string/action_add_item"
         android:icon="@drawable/ic_action_new"
@@ -7,31 +7,31 @@
 
         <menu>
             <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol">
-                <menu>
-                    <item android:id="@+id/hardalcohol" android:title="Hard Alcohol">
-                        <menu>
-                            <item android:id="@+id/Rum" android:title="Rum"/>
-                            <item android:id="@+id/Tequila" android:title="Tequila"/>
-                            <item android:id="@+id/Vodka" android:title="Vodka"/>
-                            <item android:id="@+id/Whiskey" android:title="Whiskey"/>
-                        </menu>
-                    </item>
+            <menu>
+                <item android:id="@+id/hardalcohol" android:title="Hard Alcohol">
+                    <!--<menu>-->
+                        <!--<item android:id="@+id/Rum" android:title="Rum"/>-->
+                        <!--<item android:id="@+id/Tequila" android:title="Tequila"/>-->
+                        <!--<item android:id="@+id/Vodka" android:title="Vodka"/>-->
+                        <!--<item android:id="@+id/Whiskey" android:title="Whiskey"/>-->
+                    <!--</menu>-->
+                </item>
 
-                    <item android:id="@+id/Liqueur" android:title="Liqueur">
-                        <menu>
-                            <item android:id="@+id/Baileys" android:title="Baileys"/>
-                            <item android:id="@+id/Kahlua" android:title="Kahlua"/>
-                        </menu>
-                    </item>
+                <item android:id="@+id/Liqueur" android:title="Liqueur">
+                    <menu>
+                        <item android:id="@+id/Baileys" android:title="Baileys"/>
+                        <item android:id="@+id/Kahlua" android:title="Kahlua"/>
+                    </menu>
+                </item>
 
-                    <item android:id="@+id/lightalcohol" android:title="Light Alcohol">
-                        <menu>
-                            <item android:id="@+id/Beer" android:title="Beer"/>
-                            <item android:id="@+id/Wine" android:title="Wine"/>
-                        </menu>
-                    </item>
+                <item android:id="@+id/lightalcohol" android:title="Light Alcohol">
+                    <menu>
+                        <item android:id="@+id/Beer" android:title="Beer"/>
+                        <item android:id="@+id/Wine" android:title="Wine"/>
+                    </menu>
+                </item>
 
-                </menu>
+            </menu>
             </item>
 
             <item android:id="@+id/Mixers" android:title="@string/title_Mixers"/>
