@@ -30,6 +30,17 @@
             android:name=".BasketPage"
             android:label="Please Edit Your Basket" >
         </activity>
+
+        <activity
+            android:name=".ListViewActivity"
+            android:label="Please select Alcohol" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

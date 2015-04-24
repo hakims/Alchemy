@@ -9,12 +9,12 @@
             <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol">
             <menu>
                 <item android:id="@+id/hardalcohol" android:title="Hard Alcohol">
-                    <menu>
-                        <item android:id="@+id/Rum" android:title="Rum"/>
-                        <item android:id="@+id/Tequila" android:title="Tequila"/>
-                        <item android:id="@+id/Vodka" android:title="Vodka"/>
-                        <item android:id="@+id/Whiskey" android:title="Whiskey"/>
-                    </menu>
+                    <!--<menu>-->
+                        <!--<item android:id="@+id/Rum" android:title="Rum"/>-->
+                        <!--<item android:id="@+id/Tequila" android:title="Tequila"/>-->
+                        <!--<item android:id="@+id/Vodka" android:title="Vodka"/>-->
+                        <!--<item android:id="@+id/Whiskey" android:title="Whiskey"/>-->
+                    <!--</menu>-->
                 </item>
 
                 <item android:id="@+id/Liqueur" android:title="Liqueur">
