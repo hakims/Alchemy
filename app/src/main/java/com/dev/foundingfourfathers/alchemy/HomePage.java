@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
+
 
 public class HomePage extends Activity {
 
@@ -18,6 +20,7 @@ public class HomePage extends Activity {
     private Button dbTest;
     private Button b_make_drink;
     private Button b_to_Spinner;
+    private Button b_toBrowseCocktails;
     ImageView logo;
 
 
@@ -62,6 +65,14 @@ public class HomePage extends Activity {
             }
         });
 
+        b_toBrowseCocktails = (Button) findViewById(R.id.b_toBrowseCocktails);
+        b_toBrowseCocktails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), BrowseCocktails.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
 
         dbTest = (Button) findViewById(R.id.b_dbTest);
         dbTest.setOnClickListener(new View.OnClickListener() {
