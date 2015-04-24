@@ -44,6 +44,9 @@ public class MixedDrink {
             new MixedDrink(R.drawable.dark_and_stormy, "Dark and Stormy"),
             new MixedDrink(R.drawable.bloody_mary, "Bloody Mary"),
             new MixedDrink(R.drawable.gin_and_tonic , "Gin and Tonic" ),
+            new MixedDrink(R.drawable.pina_colada , "Pina Colada" ),
+            new MixedDrink(R.drawable.seven_and_seven , "Seven and Seven" ),
+            new MixedDrink(R.drawable.sour_whiskey , "Sour Whiskey" ),
     };
 
 }
