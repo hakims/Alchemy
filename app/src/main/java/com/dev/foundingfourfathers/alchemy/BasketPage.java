@@ -2,6 +2,7 @@ package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -9,9 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 
 
 public class BasketPage extends Activity {
@@ -21,8 +26,6 @@ public class BasketPage extends Activity {
      */
 
     private ViewGroup mContainerView;
-
-
 
 
 
@@ -49,6 +52,7 @@ public class BasketPage extends Activity {
             case R.id.Alcohol:
 
                 Toast.makeText(getApplicationContext(), "Alcohol!!", Toast.LENGTH_SHORT).show();
+
                 //addItem();
 
             default:
@@ -65,10 +69,9 @@ public class BasketPage extends Activity {
                 R.layout.list_item_example, mContainerView, false);
 
         // Set the text in the new row to a random country.
-        ((TextView) newView.findViewById(android.R.id.text1)).setText("Gin!"
+        ((TextView) newView.findViewById(android.R.id.text1)).setText("Gin!");
 
-        );
-
+        /*
         // Set a click listener for the "X" button in the row that will remove the row.
         newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +91,7 @@ public class BasketPage extends Activity {
         // Because mContainerView has android:animateLayoutChanges set to true,
         // adding this view is automatically animated.
         mContainerView.addView(newView, 0);
-
+    */
     }
 
 

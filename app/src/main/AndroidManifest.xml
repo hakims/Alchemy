@@ -16,10 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DrinkViewer"
-            android:label="DrinkViewer" >
-        </activity>
 
 
         <activity
@@ -28,6 +24,10 @@
         </activity>
         <activity
             android:name=".BasketPage"
+            android:label="Please Edit Your Basket" >
+        </activity>
+        <activity
+            android:name=".ListViewExampleActivity"
             android:label="Please Edit Your Basket" >
         </activity>
     </application>

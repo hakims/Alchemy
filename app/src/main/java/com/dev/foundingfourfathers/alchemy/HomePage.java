@@ -39,7 +39,7 @@ public class HomePage extends Activity {
         b_toBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), BasketPage.class);
+                Intent myIntent = new Intent(view.getContext(), ListViewExampleActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
