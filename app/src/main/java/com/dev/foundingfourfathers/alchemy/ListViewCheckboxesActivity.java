@@ -138,6 +138,9 @@ public class ListViewCheckboxesActivity extends Activity {
 
 
         Button myButton = (Button) findViewById(R.id.findSelected);
+
+
+
         myButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -147,15 +150,24 @@ public class ListViewCheckboxesActivity extends Activity {
                 responseText.append("The following were selected...\n");
 
                 ArrayList<Drink> drinkList = dataAdapter.drinkList;
-                for(int i=0;i<drinkList.size();i++){
+                for(int i=0;i<drinkList.size();i++)
+                {
                     Drink thisDrink = drinkList.get(i);
+                    BasketPage.addNewIngredient(thisDrink);
+
+                    //intent stuff to basketpage
+
                     if(thisDrink.isSelected()){
                         responseText.append("\n" + (thisDrink.getName()));
                     }
                 }
 
+
                 Toast.makeText(getApplicationContext(),
                         responseText, Toast.LENGTH_LONG).show();
+
+
+
 
             }
         });

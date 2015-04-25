@@ -27,6 +27,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
 import com.dev.foundingfourfathers.alchemy.R;
 
 //import com.example.android.common.logger.Log;
@@ -62,12 +63,12 @@ public class FragmentTransitionFragment extends Fragment implements AdapterView.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         MixedDrink mixedDrink = dAdapter.getItem(position);
-        Log.i(TAG, mixedDrink.title + " clicked. Replacing fragment.");
+        Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
         // We start the fragment transaction here. It is just an ordinary fragment transaction.
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.sample_content_fragment,
-                        DetailFragment.newInstance(mixedDrink.resourceId, mixedDrink.title,
+                        DetailFragment.newInstance(mixedDrink.resourceId, mixedDrink.getName(),
                                 (int) view.getX(), (int) view.getY(),
                                 view.getWidth(), view.getHeight())
                 )
