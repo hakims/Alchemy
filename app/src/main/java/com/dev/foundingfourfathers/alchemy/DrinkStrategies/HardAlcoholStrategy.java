@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class HardAlcoholStrategy extends DrinkStrategy
 {
-    private String[] hardAlcohols = {"Rum", "Vodka", "Tequila", "Whiskey"};
+    private String[] hardAlcohols = {"Rum", "Vodka", "Tequila", "Whiskey", "Gin", "Scotch", "Brandy", "Bourboun"};
     private ArrayList<Drink> drinkList = null;
 
     public ArrayList<Drink> getDrinkList()

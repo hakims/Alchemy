@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by alihakimi on 4/24/2015.
  */
 public class LiqueurStrategy extends DrinkStrategy {
-    private String[] liqueurs = {"Baileys", "Schnapps", "Brandy", "Kahlua"};
+    private String[] liqueurs = {"Baileys", "Sour Apple Schnapps", "Almond", "Kahlua", "Coffee", "Peach Schnaps"};
     private ArrayList<Drink> drinkList = null;
 
     public ArrayList<Drink> getDrinkList()

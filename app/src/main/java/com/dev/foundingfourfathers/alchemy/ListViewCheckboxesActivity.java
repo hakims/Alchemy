@@ -169,7 +169,7 @@ public class ListViewCheckboxesActivity extends Activity {
                 Toast.makeText(getApplicationContext(),
                         responseText, Toast.LENGTH_LONG).show();
 
-                Intent myIntent = new Intent(v.getContext(), ListTester.class);
+                Intent myIntent = new Intent(v.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
 
 

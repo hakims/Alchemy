@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by alihakimi on 4/24/2015.
  */
 public class LightAlcoholStrategy extends DrinkStrategy {
-    private String[] lightAlcohols = {"Beer", "Red Wine", "White Wine", "Cider"};
+    private String[] lightAlcohols = {"Beer", "Red Wine", "White Wine", "Cider", "Champagne"};
     private ArrayList<Drink> drinkList = null;
 
     public ArrayList<Drink> getDrinkList()

@@ -42,7 +42,7 @@ public class HomePage extends Activity {
         b_toBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), ListTester.class);
+                Intent myIntent = new Intent(view.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -53,7 +53,7 @@ public class HomePage extends Activity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), ListTester.class);
+                Intent myIntent = new Intent(view.getContext(), BasketPage.class);
                 startActivityForResult(myIntent, 0);
             }
         });

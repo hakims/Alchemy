@@ -1,6 +1,7 @@
 package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,47 +24,38 @@ import java.util.ArrayList;
 import java.util.Observer;
 
 
-public class BasketPage extends Activity {
+public class BasketPage extends ListActivity {
     /**
      * The container view which has layout change animations turned on. In this sample, this view
      * is a {@link android.widget.LinearLayout}.
      */
-
-    private ViewGroup mContainerView;
 
     //in the future use a database instead of this local variable
     private static ArrayList<Drink> basketContents;
     private static ArrayList<MixedDrink> observers;
 
 
-    public static void addNewIngredient(Drink drink)
-    {
-        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
-        basketListSingleton.addIngredient(drink);
-        updateObservers(drink.getName());
-    }
 
-    public static void updateObservers(String newIngredientName)
-    {
-//        for(MixedDrink observer : observers)
-//        {
-//            observer.update(newIngredientName);
-//        }
-    }
-
-    public static void addObserver(MixedDrink mixedDrink)
-    {
-//        observers = new ArrayList<MixedDrink>();
-//        observers.add(mixedDrink);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_basket_page);
 
-         BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+        //get current items in basket
+        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
         basketContents = basketListSingleton.getBasketContents();
+
+        //Define a String adapter
+        ArrayList<String> listItems=new ArrayList<String>();
+        ArrayAdapter<String> basketListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listItems);
+
+        //add every item in the basket to the adapter in order to display it on the listview
+        for(int i =0; i < basketContents.size(); i++){
+            listItems.add(basketContents.get(i).getName());
+        }
+        setListAdapter(basketListAdapter);
 
     }
 
@@ -112,10 +105,31 @@ public class BasketPage extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+
     }
 
 
+    public static void addNewIngredient(Drink drink)
+    {
+        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+        basketListSingleton.addIngredient(drink);
+        updateObservers(drink.getName());
+    }
 
+    public static void updateObservers(String newIngredientName)
+    {
+//        for(MixedDrink observer : observers)
+//        {
+//            observer.update(newIngredientName);
+//        }
+    }
+
+    public static void addObserver(MixedDrink mixedDrink)
+    {
+//        observers = new ArrayList<MixedDrink>();
+//        observers.add(mixedDrink);
+    }
 
 
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class MixerStrategy extends DrinkStrategy {
 
-    private String[] mixers = {"Orange Juice", "Tonic Water", "Coke", "Sprite"};
+    private String[] mixers = {"Orange Juice", "Tonic Water", "Coke", "Sprite", "Mountain Dew", "Sour Mix", "Red Bull", "Pineapple Juice", "Cranberry Juice", "Tomato Juice", "Milk", "Lemonade", "Limeade"};
     private ArrayList<Drink> drinkList = null;
 
     public ArrayList<Drink> getDrinkList()
