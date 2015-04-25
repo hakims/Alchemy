@@ -14,6 +14,11 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.DrinkStrategy;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.DrinkStrategyFactory;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.HardAlcohol;
+
 import java.util.ArrayList;
 
 /**
@@ -21,12 +26,18 @@ import java.util.ArrayList;
  */
 public class ListViewCheckboxesActivity extends Activity {
 
-
     DrinkAdapter dataAdapter = null;
+    String drinkType = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
+
+       Log.i("INTENT_TEST", "I made it 2");
+       drinkType = getIntent().getStringExtra("DRINK_TYPE");
+        Log.i("INTENT_TEST", "I made it 3");
+        Log.i("INTENT_TEST", "Drink type " + drinkType);
 
         //Generate list View from ArrayList
         displayListView();
@@ -37,50 +48,41 @@ public class ListViewCheckboxesActivity extends Activity {
 
     private void displayListView() {
 
+        DrinkStrategyFactory drinkStrategyFactory = new DrinkStrategyFactory(drinkType);
+
+        Log.i("INTENT_TEST", "Before call to getStrategy");
+
+        DrinkStrategy drinkStrategy = drinkStrategyFactory.getStrategy();
+
+        Log.i("INTENT_TEST", "after getStrategy");
+
         //Array list of hard alcohols
-        ArrayList<HardAlcohol> hardAlcoholList = new ArrayList<HardAlcohol>();
+        ArrayList<Drink> drinkList = drinkStrategy.getDrinkList();
 
-        HardAlcohol alcohol = new HardAlcohol("Rum",false);
-        hardAlcoholList.add(alcohol);
-
-        alcohol = new HardAlcohol("Tequila",false);
-        hardAlcoholList.add(alcohol);
-
-        alcohol = new HardAlcohol("Vodka",false);
-        hardAlcoholList.add(alcohol);
-
-        alcohol = new HardAlcohol("Whiskey",false);
-        hardAlcoholList.add(alcohol);
-
+        Log.i("INTENT_TEST", "Hello again");
+        Log.i("INTENT_TEST", drinkList.get(0).getName());
 
         //create an ArrayAdapter from the String Array
         dataAdapter = new DrinkAdapter(this,
-                R.layout.hard_alcohol_info, hardAlcoholList);
+                R.layout.drink_info, drinkList);
         ListView listView = (ListView) findViewById(R.id.hardAlcoholListView);
 //        // Assign adapter to ListView
         listView.setAdapter(dataAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // When clicked, show a toast with the TextView text
-                HardAlcohol alcohol = (HardAlcohol) parent.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(),
-                        "Clicked on Row: " + alcohol.getName(),
-                        Toast.LENGTH_LONG).show();
-            }
-        });
+
 
     }
 
-    private class DrinkAdapter extends ArrayAdapter<HardAlcohol> {
+    private class DrinkAdapter extends ArrayAdapter<Drink> {
 
-        private ArrayList<HardAlcohol> hardAlcoholList;
+        private ArrayList<Drink> drinkList;
+
         public DrinkAdapter(Context context, int textViewResourceId,
-                               ArrayList<HardAlcohol> hardAlcoholList) {
-            super(context, textViewResourceId, hardAlcoholList);
-            this.hardAlcoholList = new ArrayList<HardAlcohol>();
-            this.hardAlcoholList.addAll(this.hardAlcoholList);
+                               ArrayList<Drink> drinkList)
+        {
+            super(context, textViewResourceId, drinkList);
+            this.drinkList = new ArrayList<Drink>();
+            this.drinkList.addAll(drinkList);
 
         }
         private class ViewHolder {
@@ -97,7 +99,7 @@ public class ListViewCheckboxesActivity extends Activity {
             if (convertView == null) {
                 LayoutInflater vi = (LayoutInflater)getSystemService(
                         Context.LAYOUT_INFLATER_SERVICE);
-                convertView = vi.inflate(R.layout.hard_alcohol_info, null);
+                convertView = vi.inflate(R.layout.drink_info, null);
 
                 holder = new ViewHolder();
 //                holder.code = (TextView) convertView.findViewById(R.id.code);
@@ -108,10 +110,10 @@ public class ListViewCheckboxesActivity extends Activity {
                     public void onClick(View v) {
                         CheckBox cb = (CheckBox) v ;
                         HardAlcohol alcohol = (HardAlcohol) cb.getTag();
-                        Toast.makeText(getApplicationContext(),
-                                "Clicked on Checkbox: " + cb.getText() +
-                                        " is " + cb.isChecked(),
-                                Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(),
+//                                "Clicked on Checkbox: " + cb.getText() +
+//                                        " is " + cb.isChecked(),
+//                                Toast.LENGTH_LONG).show();
                         alcohol.setSelected(cb.isChecked());
                     }
                 });
@@ -120,11 +122,11 @@ public class ListViewCheckboxesActivity extends Activity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            HardAlcohol alcohol = hardAlcoholList.get(position);
+            Drink thisDrink = drinkList.get(position);
 //            holder.code.setText(" (" +  country.getCode() + ")");
-            holder.name.setText(alcohol.getName());
-            holder.name.setChecked(alcohol.isSelected());
-            holder.name.setTag(alcohol);
+            holder.name.setText(thisDrink.getName());
+            holder.name.setChecked(thisDrink.isSelected());
+            holder.name.setTag(thisDrink);
 
             return convertView;
 
@@ -144,11 +146,11 @@ public class ListViewCheckboxesActivity extends Activity {
                 StringBuffer responseText = new StringBuffer();
                 responseText.append("The following were selected...\n");
 
-                ArrayList<HardAlcohol> hardAlcoholList = dataAdapter.hardAlcoholList;
-                for(int i=0;i<hardAlcoholList.size();i++){
-                    HardAlcohol alcohol = hardAlcoholList.get(i);
-                    if(alcohol.isSelected()){
-                        responseText.append("\n" + alcohol.getName());
+                ArrayList<Drink> drinkList = dataAdapter.drinkList;
+                for(int i=0;i<drinkList.size();i++){
+                    Drink thisDrink = drinkList.get(i);
+                    if(thisDrink.isSelected()){
+                        responseText.append("\n" + (thisDrink.getName()));
                     }
                 }
 

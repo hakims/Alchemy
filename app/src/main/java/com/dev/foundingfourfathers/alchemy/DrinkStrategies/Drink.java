@@ -1,15 +1,14 @@
-package com.dev.foundingfourfathers.alchemy;
+package com.dev.foundingfourfathers.alchemy.DrinkStrategies;
 
 /**
- * Created by Chris on 4/24/15.
+ * Created by alihakimi on 4/24/2015.
  */
-public class HardAlcohol {
-
+public class Drink {
     String name = null;
     boolean selected = false;
 
-    public HardAlcohol(String name, boolean selected) {
-        super();
+    public Drink(String name, boolean selected)
+    {
         this.name = name;
         this.selected = selected;
     }
@@ -26,4 +25,5 @@ public class HardAlcohol {
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
+
 }
