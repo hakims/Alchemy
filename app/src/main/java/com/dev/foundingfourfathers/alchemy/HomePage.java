@@ -19,7 +19,7 @@ public class HomePage extends Activity {
     private Button b_toBasket;
     private Button dbTest;
     private Button b_make_drink;
-    private Button b_to_Spinner;
+
     private Button b_toBrowseCocktails;
     ImageView logo;
 
@@ -47,14 +47,7 @@ public class HomePage extends Activity {
             }
         });
 
-        b_to_Spinner = (Button) findViewById(R.id.b_to_Spinner);
-        b_to_Spinner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), SpinnerTest.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
+
 
         b_make_drink = (Button) findViewById(R.id.button_make_drink);
         b_make_drink.setOnClickListener(new View.OnClickListener() {

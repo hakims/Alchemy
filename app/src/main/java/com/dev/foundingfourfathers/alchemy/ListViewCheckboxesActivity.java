@@ -2,6 +2,7 @@ package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -156,6 +157,9 @@ public class ListViewCheckboxesActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(),
                         responseText, Toast.LENGTH_LONG).show();
+
+                Intent myIntent = new Intent(v.getContext(), BasketPage.class);
+                startActivityForResult(myIntent, 0);
 
             }
         });

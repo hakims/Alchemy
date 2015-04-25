@@ -28,16 +28,7 @@
 
     <string name="country_prompt">Choose a country</string>
 
-    <string-array name="country_arrays">
-        <item>Malaysia</item>
-        <item>United States</item>
-        <item>Indonesia</item>
-        <item>France</item>
-        <item>Italy</item>
-        <item>Singapore</item>
-        <item>New Zealand</item>
-        <item>India</item>
-    </string-array>
+
 
     <!-- Actions -->
     <string name="action_toggle">Toggle indicator</string>
@@ -52,6 +43,11 @@
     <string name="item2">item2</string>
     <string name="Rumsubmenu">Rum</string>
     <string name="Vodkasubmenu">Vodka</string>
+    <string name="Vodka">Vodka</string>
+    <string name="Rum">Rum</string>
+    <string name="Gin">Gin</string>
+
+
 
     <!-- Messages -->
     <string name="message_empty_layout_changes">Add an item above to get started.</string>
