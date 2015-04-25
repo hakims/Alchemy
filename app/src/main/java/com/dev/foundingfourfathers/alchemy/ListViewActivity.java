@@ -20,7 +20,7 @@ public class ListViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
-        list = (ListView) findViewById(R.id.hardAlcoholList);
+        list = (ListView) findViewById(R.id.hardAlcoholListView);
 //        list.setOnItemClickListener(this);
     }
 

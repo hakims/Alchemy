@@ -8,7 +8,7 @@
         <menu>
             <item android:id="@+id/Alcohol" android:title="@string/title_Alcohol">
             <menu>
-                <item android:id="@+id/hardalcohol" android:title="Hard Alcohol">
+                <item android:id="@+id/hardAlcohol" android:title="Hard Alcohol">
                     <!--<menu>-->
                         <!--<item android:id="@+id/Rum" android:title="Rum"/>-->
                         <!--<item android:id="@+id/Tequila" android:title="Tequila"/>-->
@@ -17,25 +17,18 @@
                     <!--</menu>-->
                 </item>
 
-                <item android:id="@+id/Liqueur" android:title="Liqueur">
-                    <menu>
-                        <item android:id="@+id/Baileys" android:title="Baileys"/>
-                        <item android:id="@+id/Kahlua" android:title="Kahlua"/>
-                    </menu>
+                <item android:id="@+id/liqueur" android:title="Liqueur">
+
                 </item>
 
-                <item android:id="@+id/lightalcohol" android:title="Light Alcohol">
-                    <menu>
-                        <item android:id="@+id/Beer" android:title="Beer"/>
-                        <item android:id="@+id/Wine" android:title="Wine"/>
-                    </menu>
+                <item android:id="@+id/lightAlcohol" android:title="Light Alcohol">
+
                 </item>
 
             </menu>
             </item>
 
-            <item android:id="@+id/Mixers" android:title="@string/title_Mixers"/>
-            <item android:id="@+id/Extras" android:title="@string/title_Extras"/>
+            <item android:id="@+id/mixer" android:title="@string/title_Mixers"/>
 
         </menu>
 

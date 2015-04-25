@@ -20,6 +20,8 @@
             android:name=".DrinkViewer"
             android:label="DrinkViewer" >
         </activity>
+
+
         <activity
             android:name=".SpinnerTest"
             android:label="Spinner Test" >
@@ -28,19 +30,23 @@
             android:name=".BasketPage"
             android:label="Please Edit Your Basket" >
         </activity>
-        <activity
-            android:name=".ListViewActivity"
-            android:label="Please select Alcohol" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!--<activity-->
+            <!--android:name=".ListViewActivity"-->
+            <!--android:label="Please select Alcohol" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
         <activity
-            android:name=".BrowseCocktails.BrowseCocktails"
-            android:label="@string/title_activity_browse_cocktails" >
+            android:name=".ListViewCheckboxesActivity"
+            android:label="Select Alcohols" >
         </activity>
+
+
     </application>
 
 </manifest>

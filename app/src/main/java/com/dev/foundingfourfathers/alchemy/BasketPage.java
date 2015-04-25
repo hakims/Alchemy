@@ -3,6 +3,7 @@ package com.dev.foundingfourfathers.alchemy;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,18 +46,30 @@ public class BasketPage extends Activity {
                 NavUtils.navigateUpTo(this, new Intent(this, HomePage.class));
                 return true;
 
-            case R.id.Alcohol:
-                Toast.makeText(getApplicationContext(), "Alcohol", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.hardalcohol:
+            case R.id.hardAlcohol:
 //                Toast.makeText(getApplicationContext(), "Hard Alcohol!!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BasketPage.this, ListViewActivity.class);
+                Intent intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
+                intent.putExtra("DRINK_TYPE","hard");
+                startActivity(intent);
+                Log.i("INTENT_TEST","I made it");
+                return true;
+            case R.id.lightAlcohol:
+                Log.i("INTENT_TEST","light alcohol");
+                intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
+                intent.putExtra("DRINK_TYPE","light");
                 startActivity(intent);
                 return true;
-//            case R.id.Rum:
-//                Toast.makeText(getApplicationContext(), "Rum!", Toast.LENGTH_SHORT).show();
-//                return true;
-                //addItem();
+            case R.id.mixer:
+                intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
+                intent.putExtra("DRINK_TYPE","mixer");
+                startActivity(intent);
+                return true;
+            case R.id.liqueur:
+                intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
+                intent.putExtra("DRINK_TYPE","liqueur");
+                startActivity(intent);
+                return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);
