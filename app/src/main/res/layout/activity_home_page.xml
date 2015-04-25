@@ -7,33 +7,24 @@
 
 
 
-    <Button
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
         android:text="View Basket"
         android:id="@+id/b_toBasket"
+        android:src = "@drawable/basket"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/image_logo"
-        android:layout_toStartOf="@+id/image_logo" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Test Database"
         android:id="@+id/b_dbTest"
-        android:layout_above="@+id/b_toBrowseCocktails" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go To Spinner"
-        android:id="@+id/b_to_Spinner"
         android:layout_below="@+id/button_make_drink"
-        android:layout_alignLeft="@+id/b_dbTest"
-        android:layout_alignStart="@+id/b_dbTest"
-        android:layout_alignRight="@+id/b_dbTest"
-        android:layout_alignEnd="@+id/b_dbTest" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

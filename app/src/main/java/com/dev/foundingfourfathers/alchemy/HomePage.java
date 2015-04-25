@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -16,7 +17,7 @@ import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
 public class HomePage extends Activity {
 
     AlchemyDB database;
-    private Button b_toBasket;
+    private ImageButton b_toBasket;
     private Button dbTest;
     private Button b_make_drink;
 
@@ -38,7 +39,7 @@ public class HomePage extends Activity {
 
 
 
-        b_toBasket = (Button) findViewById(R.id.b_toBasket);
+        b_toBasket = (ImageButton) findViewById(R.id.b_toBasket);
         b_toBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
