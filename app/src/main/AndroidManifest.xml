@@ -25,11 +25,6 @@
             android:label="Please Edit Your Basket" >
         </activity>
 
-        <activity
-            android:name=".ListTester"
-            android:label="Please Edit Your Basket" >
-        </activity>
-
 
         <activity
             android:name=".ListViewCheckboxesActivity"
