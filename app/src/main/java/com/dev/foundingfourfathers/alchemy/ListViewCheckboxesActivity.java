@@ -109,12 +109,12 @@ public class ListViewCheckboxesActivity extends Activity {
                 holder.name.setOnClickListener( new View.OnClickListener() {
                     public void onClick(View v) {
                         CheckBox cb = (CheckBox) v ;
-                        HardAlcohol alcohol = (HardAlcohol) cb.getTag();
+                        Drink drink = (Drink) cb.getTag();
 //                        Toast.makeText(getApplicationContext(),
 //                                "Clicked on Checkbox: " + cb.getText() +
 //                                        " is " + cb.isChecked(),
 //                                Toast.LENGTH_LONG).show();
-                        alcohol.setSelected(cb.isChecked());
+                        drink.setSelected(cb.isChecked());
                     }
                 });
             }
