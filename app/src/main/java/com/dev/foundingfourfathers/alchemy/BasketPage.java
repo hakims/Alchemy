@@ -2,6 +2,7 @@ package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
+
+import java.util.ArrayList;
+import java.util.Observer;
+
 
 public class BasketPage extends Activity {
     /**
@@ -22,11 +30,41 @@ public class BasketPage extends Activity {
 
     private ViewGroup mContainerView;
 
+    //in the future use a database instead of this local variable
+    private static ArrayList<Drink> basketContents;
+    private static ArrayList<MixedDrink> observers;
 
 
+    public static void addNewIngredient(Drink drink)
+    {
+        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+        basketListSingleton.addIngredient(drink);
+        updateObservers(drink.getName());
+    }
 
+    public static void updateObservers(String newIngredientName)
+    {
+//        for(MixedDrink observer : observers)
+//        {
+//            observer.update(newIngredientName);
+//        }
+    }
 
+    public static void addObserver(MixedDrink mixedDrink)
+    {
+//        observers = new ArrayList<MixedDrink>();
+//        observers.add(mixedDrink);
+    }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+         BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+        basketContents = basketListSingleton.getBasketContents();
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,39 +115,6 @@ public class BasketPage extends Activity {
     }
 
 
-    private void addItem() {
-
-
-        // Instantiate a new "row" view.
-        final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
-                R.layout.list_item_example, mContainerView, false);
-
-        // Set the text in the new row to a random country.
-        ((TextView) newView.findViewById(android.R.id.text1)).setText("Gin!"
-
-        );
-
-        // Set a click listener for the "X" button in the row that will remove the row.
-        newView.findViewById(R.id.delete_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Remove the row from its parent (the container view).
-                // Because mContainerView has android:animateLayoutChanges set to true,
-                // this removal is automatically animated.
-                mContainerView.removeView(newView);
-
-                // If there are no rows remaining, show the empty view.
-                if (mContainerView.getChildCount() == 0) {
-                    findViewById(android.R.id.empty).setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        // Because mContainerView has android:animateLayoutChanges set to true,
-        // adding this view is automatically animated.
-        mContainerView.addView(newView, 0);
-
-    }
 
 
 

@@ -23,6 +23,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
 import com.dev.foundingfourfathers.alchemy.R;
 
 class DrinkAdapter extends BaseAdapter {
@@ -72,7 +73,7 @@ class DrinkAdapter extends BaseAdapter {
     public void bindView(ViewHolder holder, int position) {
         MixedDrink mixedDrink = getItem(position);
         holder.image.setImageResource(mixedDrink.resourceId);
-        holder.title.setText(mixedDrink.title);
+        holder.title.setText(mixedDrink.getName());
     }
 
     public static class ViewHolder {
