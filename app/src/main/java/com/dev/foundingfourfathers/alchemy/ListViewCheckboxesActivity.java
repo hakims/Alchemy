@@ -2,6 +2,7 @@ package com.dev.foundingfourfathers.alchemy;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class ListViewCheckboxesActivity extends Activity {
 
     DrinkAdapter dataAdapter = null;
     String drinkType = null;
+    private ViewGroup mContainerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -153,18 +155,22 @@ public class ListViewCheckboxesActivity extends Activity {
                 for(int i=0;i<drinkList.size();i++)
                 {
                     Drink thisDrink = drinkList.get(i);
-                    BasketPage.addNewIngredient(thisDrink);
+
 
                     //intent stuff to basketpage
 
                     if(thisDrink.isSelected()){
                         responseText.append("\n" + (thisDrink.getName()));
+                        BasketPage.addNewIngredient(thisDrink);
                     }
                 }
 
 
                 Toast.makeText(getApplicationContext(),
                         responseText, Toast.LENGTH_LONG).show();
+
+                Intent myIntent = new Intent(v.getContext(), ListTester.class);
+                startActivityForResult(myIntent, 0);
 
 
 

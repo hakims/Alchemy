@@ -16,18 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DrinkViewer"
-            android:label="DrinkViewer" >
-        </activity>
 
 
-        <activity
-            android:name=".SpinnerTest"
-            android:label="Spinner Test" >
-        </activity>
+
+
         <activity
             android:name=".BasketPage"
+            android:label="Please Edit Your Basket" >
+        </activity>
+
+        <activity
+            android:name=".ListTester"
             android:label="Please Edit Your Basket" >
         </activity>
 
