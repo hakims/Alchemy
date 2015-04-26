@@ -1,27 +1,22 @@
 package com.dev.foundingfourfathers.alchemy;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 
 public class BasketPage extends ListActivity {
@@ -33,6 +28,9 @@ public class BasketPage extends ListActivity {
     //in the future use a database instead of this local variable
     private static ArrayList<Drink> basketContents;
     private static ArrayList<MixedDrink> observers;
+
+    private Button b_home;
+    private Button b_remove;
 
 
 
@@ -48,7 +46,7 @@ public class BasketPage extends ListActivity {
         basketContents = basketListSingleton.getBasketContents();
 
         //Define a String adapter
-        ArrayList<String> listItems=new ArrayList<String>();
+        final ArrayList<String> listItems=new ArrayList<String>();
         ArrayAdapter<String> basketListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listItems);
 
         //add every item in the basket to the adapter in order to display it on the listview
@@ -56,6 +54,34 @@ public class BasketPage extends ListActivity {
             listItems.add(basketContents.get(i).getName());
         }
         setListAdapter(basketListAdapter);
+
+        b_home = (Button) findViewById(R.id.button_toHome);
+        b_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), HomePage.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        b_remove = (Button) findViewById(R.id.button_remove);
+        b_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
+                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
+//                final int position = instance.listView.getPositionForView((View) view.getParent());
+                int firstPosition = 0;
+
+                Drink firstDrinkInBasket = basketContents.get(firstPosition);
+                if (firstDrinkInBasket != null) {
+                    basketContents.remove(firstDrinkInBasket);
+                    listItems.remove(firstPosition);
+//                    instance.notifyFunction();
+                }
+
+            }
+        });
 
     }
 
@@ -115,6 +141,9 @@ public class BasketPage extends ListActivity {
         BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
         basketListSingleton.addIngredient(drink);
         updateObservers(drink.getName());
+
+//        ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
+//        instance.dataAdapter.add(drink);
     }
 
     public static void updateObservers(String newIngredientName)

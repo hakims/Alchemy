@@ -11,34 +11,20 @@
 
 
     <Button
-        android:id="@+id/findSelected"
+        android:id="@+id/b_add_drink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add drinks to basket" />
 
-    <ListView android:id="@+id/hardAlcoholListView"
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Remove"-->
+        <!--android:id="@+id/deleteButton"-->
+        <!--android:layout_gravity="right" />-->
+
+    <ListView android:id="@+id/drinkListView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
 </LinearLayout>
-
-    <!--android:orientation="vertical"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!-->-->
-
-    <!--<Button-->
-        <!--android:id="@+id/findSelected"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Find hard alcohols that are Selected"-->
-        <!--/>-->
-
-    <!--<ListView-->
-        <!--android:id="@+id/hardAlcoholListView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:entries="@array/hard_alcohol_array"-->
-    <!--/>-->
-
-<!--</LinearLayout>-->
