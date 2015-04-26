@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +31,15 @@ public class BasketPage extends ListActivity {
     //in the future use a database instead of this local variable
     private static ArrayList<Drink> basketContents;
     private static ArrayList<MixedDrink> observers;
+
+    protected static final int CONTEXTMENU_OPTION1 = 1;
+    protected static final int CONTEXTMENU_OPTION2 = 2;
+
+    ArrayList<String> listItems=new ArrayList<String>();
+
+    ListView listView = null;
+
+
 //    private ListView listView = null;
 
     private Button b_home;
@@ -53,7 +63,7 @@ public class BasketPage extends ListActivity {
         basketContents = basketListSingleton.getBasketContents();
 
         //Define a String adapter
-        final ArrayList<String> listItems=new ArrayList<String>();
+        listItems=new ArrayList<String>();
         ArrayAdapter<String> basketListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listItems);
 
         //add every item in the basket to the adapter in order to display it on the listView
@@ -71,16 +81,16 @@ public class BasketPage extends ListActivity {
 //            }
 //        });
 
-        final ListView listView = getListView();
+        listView = getListView();
+        registerForContextMenu(listView);
+
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listView.setSelection(position);
-                Drink drinkToRemove = basketContents.get(position);
-                basketContents.remove(drinkToRemove);
-                listItems.remove(position);
-                onCreate(savedInstanceState);
+                openContextMenu(view);
             }
         });
 
@@ -92,7 +102,7 @@ public class BasketPage extends ListActivity {
 //                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
 ////                final int position = instance.listView.getPositionForView((View) view.getParent());
 //                int firstPosition = 0;
-//
+////
 //                Drink firstDrinkInBasket = basketContents.get(firstPosition);
 //                if (firstDrinkInBasket != null) {
 //                    basketContents.remove(firstDrinkInBasket);
@@ -101,7 +111,7 @@ public class BasketPage extends ListActivity {
 ////                    instance.dataAdapter.notifyDataSetChanged();
 ////                    instance.notifyFunction();
 //                }
-//
+////
 //            }
 //        });
 
@@ -113,6 +123,46 @@ public class BasketPage extends ListActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_drinkselector, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        // Set title for the context menu
+        menu.setHeaderTitle("Are you sure you want to remove?");
+
+        // Add all the menu options
+        menu.add(Menu.NONE, CONTEXTMENU_OPTION1, 0, "Yes");
+        menu.add(Menu.NONE, CONTEXTMENU_OPTION2, 1, "No");
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        // Get extra info about list item that was long-pressed
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+
+        // Perform action according to selected item from context menu
+        switch (item.getItemId()) {
+
+            case CONTEXTMENU_OPTION1:
+//                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
+//                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
+//                myDataAdapter.remove(myDataAdapter.getItem(menuInfo.position));
+                listItems.remove(menuInfo.position);
+
+                Drink drinkToRemove = basketContents.get(menuInfo.position);
+                basketContents.remove(drinkToRemove);
+
+                onCreate(new Bundle());
+                break;
+
+            case CONTEXTMENU_OPTION2:
+                break;
+        }
+
+        return true;
     }
 
     @Override
