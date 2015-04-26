@@ -22,7 +22,7 @@
 
         <activity
             android:name=".BasketPage"
-            android:label="Please Edit Your Basket" >
+            android:label="Your Basket" >
         </activity>
 
 

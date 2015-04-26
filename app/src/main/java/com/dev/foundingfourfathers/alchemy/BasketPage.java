@@ -1,16 +1,18 @@
 package com.dev.foundingfourfathers.alchemy;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
@@ -28,6 +30,7 @@ public class BasketPage extends ListActivity {
     //in the future use a database instead of this local variable
     private static ArrayList<Drink> basketContents;
     private static ArrayList<MixedDrink> observers;
+//    private ListView listView = null;
 
     private Button b_home;
     private Button b_remove;
@@ -36,10 +39,14 @@ public class BasketPage extends ListActivity {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
+    public void onCreate(final Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basket_page);
+
+        ActionBar actionBar = getActionBar();
+//        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         //get current items in basket
         BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
@@ -49,39 +56,54 @@ public class BasketPage extends ListActivity {
         final ArrayList<String> listItems=new ArrayList<String>();
         ArrayAdapter<String> basketListAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listItems);
 
-        //add every item in the basket to the adapter in order to display it on the listview
+        //add every item in the basket to the adapter in order to display it on the listView
         for(int i =0; i < basketContents.size(); i++){
             listItems.add(basketContents.get(i).getName());
         }
         setListAdapter(basketListAdapter);
 
-        b_home = (Button) findViewById(R.id.button_toHome);
-        b_home.setOnClickListener(new View.OnClickListener() {
+//        b_home = (Button) findViewById(R.id.button_toHome);
+//        b_home.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent myIntent = new Intent(view.getContext(), HomePage.class);
+//                startActivityForResult(myIntent, 0);
+//            }
+//        });
+
+        final ListView listView = getListView();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), HomePage.class);
-                startActivityForResult(myIntent, 0);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listView.setSelection(position);
+                Drink drinkToRemove = basketContents.get(position);
+                basketContents.remove(drinkToRemove);
+                listItems.remove(position);
+                onCreate(savedInstanceState);
             }
         });
 
-        b_remove = (Button) findViewById(R.id.button_remove);
-        b_remove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
-                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
-//                final int position = instance.listView.getPositionForView((View) view.getParent());
-                int firstPosition = 0;
-
-                Drink firstDrinkInBasket = basketContents.get(firstPosition);
-                if (firstDrinkInBasket != null) {
-                    basketContents.remove(firstDrinkInBasket);
-                    listItems.remove(firstPosition);
-//                    instance.notifyFunction();
-                }
-
-            }
-        });
+//        b_remove = (Button) findViewById(R.id.button_remove);
+//        b_remove.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
+//                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
+////                final int position = instance.listView.getPositionForView((View) view.getParent());
+//                int firstPosition = 0;
+//
+//                Drink firstDrinkInBasket = basketContents.get(firstPosition);
+//                if (firstDrinkInBasket != null) {
+//                    basketContents.remove(firstDrinkInBasket);
+//                    listItems.remove(firstPosition);
+//                    onCreate(savedInstanceState);
+////                    instance.dataAdapter.notifyDataSetChanged();
+////                    instance.notifyFunction();
+//                }
+//
+//            }
+//        });
 
     }
 
@@ -100,12 +122,14 @@ public class BasketPage extends ListActivity {
             case android.R.id.home:
                 // Navigate "up" the demo structure to the launchpad activity.
                 // See http://developer.android.com/design/patterns/navigation.html for more.
-                NavUtils.navigateUpTo(this, new Intent(this, HomePage.class));
+//                NavUtils.navigateUpTo(this, new Intent(this, HomePage.class));
+                Intent intent = new Intent(this, HomePage.class);
+                startActivity(intent);
                 return true;
 
             case R.id.hardAlcohol:
 //                Toast.makeText(getApplicationContext(), "Hard Alcohol!!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
+                intent = new Intent(BasketPage.this, ListViewCheckboxesActivity.class);
                 intent.putExtra("DRINK_TYPE","hard");
                 startActivity(intent);
                 Log.i("INTENT_TEST","I made it");
@@ -127,14 +151,11 @@ public class BasketPage extends ListActivity {
                 startActivity(intent);
                 return true;
 
-
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-
     }
-
 
     public static void addNewIngredient(Drink drink)
     {
