@@ -11,23 +11,6 @@
     <string name="title_activity_possible_drinks">title_activity_possible_drinks</string>
     <string name="title_Alcohol">Alcohol</string>
     <string name="title_Mixers">Mixers</string>
-    <string name="title_Extras">Extras</string>
-
-    <string name="text">
-        Hard Alcohols!
-     </string>
-
-
-
-    <string-array name="hard_alcohol_array">
-        <item>Tequila</item>
-        <item>Rum</item>
-        <item>Vodka</item>
-        <item>Whiskey</item>
-    </string-array>
-
-    <string name="country_prompt">Choose a country</string>
-
 
 
     <!-- Actions -->
@@ -41,11 +24,11 @@
     <string name="action_photo">View photo</string>
     <string name="item1">item1</string>
     <string name="item2">item2</string>
-    <string name="Rumsubmenu">Rum</string>
-    <string name="Vodkasubmenu">Vodka</string>
-    <string name="Vodka">Vodka</string>
-    <string name="Rum">Rum</string>
-    <string name="Gin">Gin</string>
+    <!--<string name="Rumsubmenu">Rum</string>-->
+    <!--<string name="Vodkasubmenu">Vodka</string>-->
+    <!--<string name="Vodka">Vodka</string>-->
+    <!--<string name="Rum">Rum</string>-->
+    <!--<string name="Gin">Gin</string>-->
 
 
 
