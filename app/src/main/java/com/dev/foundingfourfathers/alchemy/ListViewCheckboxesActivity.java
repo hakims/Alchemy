@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.DrinkStrategy;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.DrinkStrategyFactory;
@@ -129,8 +130,6 @@ public class ListViewCheckboxesActivity extends Activity {
 
         Button myButton = (Button) findViewById(R.id.b_add_drink);
 
-
-
         myButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -149,7 +148,7 @@ public class ListViewCheckboxesActivity extends Activity {
 
                     if(thisDrink.isSelected()){
 //                        responseText.append("\n" + (thisDrink.getName()));
-                        BasketPage.addNewIngredient(thisDrink);
+                        BasketListSingleton.getBasketListSingleton().addIngredient(thisDrink);
                         dataAdapter.notifyDataSetChanged();
                     }
                 }

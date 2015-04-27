@@ -5,6 +5,7 @@ package com.dev.foundingfourfathers.alchemy.DrinkStrategies;
  */
 public interface Observer {
 
-    public void update(String basketItem);
+    public void updateAfterAdd(String basketItem);
+    public void updateAfterRemove(String basketItem);
 
 }

@@ -17,18 +17,6 @@ public class Drink {
 
     }
 
-//    //Only use this constructor when adding new Mixed Drinks!
-//    public Drink(String name, boolean selected, MixedDrink mixedDrink)
-//    {
-//        this.name = name;
-//        this.selected = selected;
-//
-//        observers = new ArrayList<Observer>();
-//        observers.add(mixedDrink);
-//        updateObservers();
-//
-//    }
-
     public String getName() {
         return name;
     }

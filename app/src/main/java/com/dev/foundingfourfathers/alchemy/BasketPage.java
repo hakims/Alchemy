@@ -18,6 +18,7 @@ import android.widget.ListView;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrinkListSingleton;
 
 import java.util.ArrayList;
 
@@ -43,9 +44,6 @@ public class BasketPage extends ListActivity {
 //    private ListView listView = null;
 
     private Button b_home;
-
-
-
 
     @Override
     public void onCreate(final Bundle savedInstanceState)
@@ -122,7 +120,9 @@ public class BasketPage extends ListActivity {
                 listItems.remove(menuInfo.position);
 
                 Drink drinkToRemove = basketContents.get(menuInfo.position);
-                basketContents.remove(drinkToRemove);
+               // basketContents.remove(drinkToRemove);
+                BasketListSingleton.removeIngredient(drinkToRemove);
+
 
                 onCreate(new Bundle());
                 break;
@@ -176,29 +176,32 @@ public class BasketPage extends ListActivity {
 
     }
 
-    public static void addNewIngredient(Drink drink)
-    {
-        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
-        basketListSingleton.addIngredient(drink);
-        updateObservers(drink.getName());
+//    public static void addNewIngredient(Drink drink)
+//    {
+//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+//        basketListSingleton.addIngredient(drink);
+//        //updateObservers(drink.getName());
+//
+//    }
+//
+//    public static void removeIngredient(Drink drink)
+//    {
+//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+//        basketListSingleton.removeIngredient(drink);
+//        //updateObservers(drink.getName());
+//
+//    }
+//
+//    public static void updateObservers(String newIngredientName)
+//    {
+//     //   observers = MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList();
+//
+////        for(MixedDrink observer : MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList())
+////        {
+////            observer.update(newIngredientName);
+////        }
+//    }
 
-//        ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
-//        instance.dataAdapter.add(drink);
-    }
-
-    public static void updateObservers(String newIngredientName)
-    {
-//        for(MixedDrink observer : observers)
-//        {
-//            observer.update(newIngredientName);
-//        }
-    }
-
-    public static void addObserver(MixedDrink mixedDrink)
-    {
-//        observers = new ArrayList<MixedDrink>();
-//        observers.add(mixedDrink);
-    }
 
 
 
