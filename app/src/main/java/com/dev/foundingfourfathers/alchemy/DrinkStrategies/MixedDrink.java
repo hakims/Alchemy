@@ -124,12 +124,16 @@ public class MixedDrink extends Drink implements Observer {
 
     static String[] HurricaneIngredients = {"Vodka", "Gin", "Light Rum", "Dark Rum", "Almond Liqueur", "Triple Sec", "Grapefruit Juice", "Pineapple Juice", "Grenadine Syrup" };
     static String[] MojitoIngredients = {"Light Rum", "Simple Syrup", "Lime Juice", "Club Soda"};
+    static String[] LongIslandIngredients = {"Vodka", "Gin", "Light Rum", "Triple Sec", "Sweet and Sour Mix", "Cola"};
+    static String[] BloodyMaryIngredients = {"Vodka", "Tomato Juice", "Lemon Juice", "Worchestershire Sauce", "Hot Sauce"};
 
     static ArrayList<Drink> hurricaneItems = generateIngredients(HurricaneIngredients);
     static ArrayList<Drink> mojitoItems = generateIngredients(MojitoIngredients);
+    static ArrayList<Drink> longIslandItems = generateIngredients(LongIslandIngredients);
+    static ArrayList<Drink> bloodyMaryItems = generateIngredients(BloodyMaryIngredients);
 
     public static final MixedDrink[] ALL_MIXED_DRINKS = {
-            new MixedDrink(R.drawable.long_island, "Long Island Ice Tea"),
+            new MixedDrink(R.drawable.long_island, "Long Island Ice Tea", longIslandItems),
             new MixedDrink(R.drawable.moscow_mule, "Moscow Mule"),
             new MixedDrink(R.drawable.rum_and_coke, "Rum and Coke"),
             new MixedDrink(R.drawable.screwdriver, "Screwdriver"),
@@ -139,7 +143,7 @@ public class MixedDrink extends Drink implements Observer {
             new MixedDrink(R.drawable.bay_breeze, "Bay Breeze"),
             new MixedDrink(R.drawable.sex_on_the_beach, "Sex on the Beach"),
             new MixedDrink(R.drawable.dark_and_stormy, "Dark and Stormy"),
-            new MixedDrink(R.drawable.bloody_mary, "Bloody Mary"),
+            new MixedDrink(R.drawable.bloody_mary, "Bloody Mary", bloodyMaryItems),
             new MixedDrink(R.drawable.gin_and_tonic , "Gin and Tonic" ),
             new MixedDrink(R.drawable.pina_colada , "Pina Colada" ),
             new MixedDrink(R.drawable.seven_and_seven , "Seven and Seven" ),
