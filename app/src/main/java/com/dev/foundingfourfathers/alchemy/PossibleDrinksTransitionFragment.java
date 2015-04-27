@@ -1,20 +1,4 @@
-/*
- * Copyright 2014 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.dev.foundingfourfathers.alchemy.BrowseCocktails;
+package com.dev.foundingfourfathers.alchemy;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,31 +9,31 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
 
+import com.dev.foundingfourfathers.alchemy.BrowseCocktails.DetailFragment;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
-import com.dev.foundingfourfathers.alchemy.R;
 
-//import com.example.android.common.logger.Log;
-
-public class FragmentTransitionFragment extends Fragment implements AdapterView.OnItemClickListener {
+/**
+ * Created by alihakimi on 4/27/2015.
+ */
+public class PossibleDrinksTransitionFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private static final String TAG = "FragmentTransitionFragment";
 
-    private BaseAdapter dAdapter;
+    private PossibleDrinksAdapter dAdapter;
 
-    public static FragmentTransitionFragment newInstance() {
-        return new FragmentTransitionFragment();
+    public static PossibleDrinksTransitionFragment newInstance() {
+        return new PossibleDrinksTransitionFragment();
     }
 
-    public FragmentTransitionFragment() {
+    public PossibleDrinksTransitionFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // This is the adapter we use to populate the grid.
-        dAdapter = new BrowseCocktailsAdapter(inflater, R.layout.item_mixed_drink_grid);
+        dAdapter = new PossibleDrinksAdapter(inflater, R.layout.item_mixed_drink_grid);
         // Inflate the layout with a GridView in it.
         return inflater.inflate(R.layout.fragment_fragment_transition, container, false);
     }
@@ -63,18 +47,18 @@ public class FragmentTransitionFragment extends Fragment implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        MixedDrink mixedDrink = ((BrowseCocktailsAdapter)dAdapter).getItem(position);
+        MixedDrink mixedDrink = dAdapter.getItem(position);
         Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
         // We start the fragment transaction here. It is just an ordinary fragment transaction.
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.sample_content_fragment,
+                .replace(R.id.possible_drinks_fragment,
                         DetailFragment.newInstance(mixedDrink.resourceId, mixedDrink.getName(),
                                 (int) view.getX(), (int) view.getY(),
                                 view.getWidth(), view.getHeight())
                 )
-                // We push the fragment transaction to back stack. User can go back to the
-                // previous fragment by pressing back button.
+                        // We push the fragment transaction to back stack. User can go back to the
+                        // previous fragment by pressing back button.
                 .addToBackStack("detail")
                 .commit();
     }

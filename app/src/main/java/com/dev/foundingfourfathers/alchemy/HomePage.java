@@ -12,11 +12,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
-import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrinkListSingleton;
-
-import java.util.ArrayList;
 
 
 public class HomePage extends Activity {
@@ -36,6 +33,8 @@ public class HomePage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+
+        MixedDrink[] mixedDrinks = MixedDrink.ALL_MIXED_DRINKS;
 
         database = new AlchemyDB(getApplicationContext());
 
@@ -59,7 +58,7 @@ public class HomePage extends Activity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), BasketPage.class);
+                Intent myIntent = new Intent(view.getContext(), PossibleDrinksActivity.class);
                 startActivityForResult(myIntent, 0);
             }
         });
@@ -82,16 +81,16 @@ public class HomePage extends Activity {
                // Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
 
                 MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
-                ArrayList<Drink> ingredients = new ArrayList<Drink>();
-                Drink tempDrink = new Drink("Vodka", false);
-                ingredients.add(tempDrink);
-                tempDrink = new Drink("Orange Juice", false);
-                ingredients.add(tempDrink);
-                MixedDrink screwdriver = new MixedDrink("Screwdriver", ingredients);
+//                ArrayList<Drink> ingredients = new ArrayList<Drink>();
+//                Drink tempDrink = new Drink("Vodka", false);
+//                ingredients.add(tempDrink);
+//                tempDrink = new Drink("Orange Juice", false);
+//                ingredients.add(tempDrink);
+//                MixedDrink screwdriver = new MixedDrink("Screwdriver", ingredients);
 
                // mixedDrinkListSingleton.addMixedDrink(screwdriver);
 
-                Toast.makeText(getApplicationContext(),"Observers: " + mixedDrinkListSingleton.printMixedDrinksList() + "Observers Size: " + mixedDrinkListSingleton.getMixedDrinksList().size(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Observers: " + mixedDrinkListSingleton.printMixedDrinksList() + "Ingredients: " + mixedDrinkListSingleton.getMixedDrinksList().get(0).printIngredients(), Toast.LENGTH_LONG).show();
             }
         });
     }

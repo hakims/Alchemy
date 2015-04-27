@@ -1,29 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".HomePage">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/sample_main_layout">
 
-    <Button
+    <FrameLayout
+        android:id="@+id/possible_drinks_fragment"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0px" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Basket"
-        android:id="@+id/b_toBasket"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your drinks"
-        android:id="@+id/View_Drink_Test"
-        android:layout_marginTop="55dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/b_toBasket"
-        android:layout_alignStart="@+id/b_toBasket" />
-
-
-</RelativeLayout>
+</LinearLayout>

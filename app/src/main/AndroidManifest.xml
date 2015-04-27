@@ -25,6 +25,10 @@
             android:label="Your Basket" >
         </activity>
 
+        <activity
+            android:name="PossibleDrinksActivity"
+            android:label="You can make these!" >
+        </activity>
 
         <activity
             android:name=".ListViewCheckboxesActivity"

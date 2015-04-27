@@ -1,4 +1,4 @@
-package com.dev.foundingfourfathers.alchemy.BrowseCocktails;
+package com.dev.foundingfourfathers.alchemy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,28 +6,31 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 
-import com.dev.foundingfourfathers.alchemy.HomePage;
-import com.dev.foundingfourfathers.alchemy.R;
+import com.dev.foundingfourfathers.alchemy.BrowseCocktails.FragmentTransitionFragment;
 
 
-public class BrowseCocktails extends FragmentActivity {
+/**
+ * Created by alihakimi on 4/27/2015.
+ */
+public class PossibleDrinksActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_browse_cocktails);
+        setContentView(R.layout.activity_possible_drinks);
 
         android.app.ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            FragmentTransitionFragment fragment = new FragmentTransitionFragment();
-            transaction.replace(R.id.sample_content_fragment, fragment);
+            PossibleDrinksTransitionFragment fragment = new PossibleDrinksTransitionFragment();
+            transaction.replace(R.id.possible_drinks_fragment, fragment);
             transaction.commit();
         }
     }
 
+    //go back to homepage if menu clicked
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -40,6 +43,4 @@ public class BrowseCocktails extends FragmentActivity {
         }
 
     }
-
-
 }

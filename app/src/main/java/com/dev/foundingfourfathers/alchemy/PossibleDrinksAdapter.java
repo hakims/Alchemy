@@ -1,20 +1,4 @@
-/*
- * Copyright 2014 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-package com.dev.foundingfourfathers.alchemy.BrowseCocktails;
+package com.dev.foundingfourfathers.alchemy;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,31 +8,35 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
-import com.dev.foundingfourfathers.alchemy.R;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrinkListSingleton;
 
-class DrinkAdapter extends BaseAdapter {
-
+/**
+ * Created by alihakimi on 4/27/2015.
+ */
+public class PossibleDrinksAdapter extends BaseAdapter {
     private final LayoutInflater dLayoutInflater;
     private final int dResourceId;
 
-    public DrinkAdapter(LayoutInflater inflater, int resourceId) {
+    public PossibleDrinksAdapter(LayoutInflater inflater, int resourceId) {
         dLayoutInflater = inflater;
         dResourceId = resourceId;
     }
 
     @Override
     public int getCount() {
-        return MixedDrink.MIXED_DRINKS.length;
+        return MixedDrinkListSingleton.getMixedDrinkListSingleton().possibleDrinksToMake().size();
     }
 
     @Override
     public MixedDrink getItem(int position) {
-        return MixedDrink.MIXED_DRINKS[position];
+        //return MixedDrink.ALL_MIXED_DRINKS[position];
+        return MixedDrinkListSingleton.getMixedDrinkListSingleton().possibleDrinksToMake().get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return MixedDrink.MIXED_DRINKS[position].resourceId;
+//        return MixedDrink.ALL_MIXED_DRINKS[position].resourceId;
+        return MixedDrinkListSingleton.getMixedDrinkListSingleton().possibleDrinksToMake().get(position).resourceId;
     }
 
     @Override
@@ -80,5 +68,4 @@ class DrinkAdapter extends BaseAdapter {
         public ImageView image;
         public TextView title;
     }
-
 }

@@ -31,6 +31,18 @@ public class MixedDrink extends Drink implements Observer {
         return ingredients;
     }
 
+    public String printIngredients()
+    {
+        String result = "";
+
+        for(Drink ingredient: ingredients)
+        {
+            result += ingredient.getName() + " ";
+        }
+
+        return result;
+    }
+
     public int getNumAvailableIngredientsInBasket()
     {
         return numAvailableIngredientsInBasket;
@@ -44,9 +56,7 @@ public class MixedDrink extends Drink implements Observer {
 
     public void updateAfterAdd(String basketItem)
     {
-        //if basketItem is in the list of ingredients, update numAvailableIngredients.
-        Log.i("OBSERVER_TEST", "Am I here twice? " + numAvailableIngredientsInBasket + " " + basketItem);
-
+        //if basketItem is in the list of ingredients, update numAvailableIngredients
         for(Drink ingredient: ingredients)
         {
 
@@ -78,10 +88,19 @@ public class MixedDrink extends Drink implements Observer {
     {
         MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
         mixedDrinkListSingleton.addMixedDrink(mixedDrink);
-
     }
 
-
+    public static ArrayList<Drink> generateIngredients(String []cocktail)
+    {
+        ArrayList<Drink> result = new ArrayList<Drink>();
+        Drink temp;
+        for(int i =0;i<cocktail.length;i++)
+        {
+            temp = new Drink(cocktail[i],false);
+            result.add(temp);
+        }
+        return result;
+    }
 
     //everything below here is used exclusively for the BrowseCocktails
 
@@ -93,14 +112,30 @@ public class MixedDrink extends Drink implements Observer {
         this.resourceId = resourceId;
     }
 
-    public static final MixedDrink[] MIXED_DRINKS = {
+    public MixedDrink(int resourceId, String name, ArrayList<Drink> ingredients) {
+
+        super(name,false);
+        this.resourceId = resourceId;
+        this.ingredients = ingredients;
+
+        //Add this Mixed Drink as an observer
+        addObserver(this);
+    }
+
+    static String[] HurricaneIngredients = {"Vodka", "Gin", "Light Rum", "Dark Rum", "Almond Liqueur", "Triple Sec", "Grapefruit Juice", "Pineapple Juice", "Grenadine Syrup" };
+    static String[] MojitoIngredients = {"Light Rum", "Simple Syrup", "Lime Juice", "Club Soda"};
+
+    static ArrayList<Drink> hurricaneItems = generateIngredients(HurricaneIngredients);
+    static ArrayList<Drink> mojitoItems = generateIngredients(MojitoIngredients);
+
+    public static final MixedDrink[] ALL_MIXED_DRINKS = {
             new MixedDrink(R.drawable.long_island, "Long Island Ice Tea"),
             new MixedDrink(R.drawable.moscow_mule, "Moscow Mule"),
             new MixedDrink(R.drawable.rum_and_coke, "Rum and Coke"),
             new MixedDrink(R.drawable.screwdriver, "Screwdriver"),
             new MixedDrink(R.drawable.frozen_margarita, "Frozen Margarita"),
-            new MixedDrink(R.drawable.hurricane, "Hurricane"),
-            new MixedDrink(R.drawable.mojito, "Mojito"),
+            new MixedDrink(R.drawable.hurricane, "Hurricane", hurricaneItems),
+            new MixedDrink(R.drawable.mojito, "Mojito", mojitoItems),
             new MixedDrink(R.drawable.bay_breeze, "Bay Breeze"),
             new MixedDrink(R.drawable.sex_on_the_beach, "Sex on the Beach"),
             new MixedDrink(R.drawable.dark_and_stormy, "Dark and Stormy"),

@@ -1,5 +1,7 @@
 package com.dev.foundingfourfathers.alchemy.DrinkStrategies;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -45,4 +47,18 @@ public class MixedDrinkListSingleton {
         return temp;
     }
 
+    public ArrayList<MixedDrink>  possibleDrinksToMake()
+    {
+        ArrayList<MixedDrink> result = new ArrayList<MixedDrink>();
+        for(MixedDrink cocktail: mixedDrinks)
+        {
+            if(cocktail.getNumAvailableIngredientsInBasket() >0)
+            {
+                result.add(cocktail);
+            }
+        }
+        Log.i("POSSIBLE DRINKS TEST", "size of possibleDrinkslist: " + result.size());
+        return result;
+
+    }
 }

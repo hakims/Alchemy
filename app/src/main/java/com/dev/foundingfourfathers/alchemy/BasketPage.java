@@ -170,49 +170,6 @@ public class BasketPage extends ListActivity {
         startActivity(intent);
     }
 
-//    public static void addNewIngredient(Drink drink)
-//    {
-//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
-//        basketListSingleton.addIngredient(drink);
-//        //updateObservers(drink.getName());
-//
-//    }
-//
-//    public static void removeIngredient(Drink drink)
-//    {
-//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
-//        basketListSingleton.removeIngredient(drink);
-//        //updateObservers(drink.getName());
-//
-//    }
-//
-//    public static void updateObservers(String newIngredientName)
-//    {
-//     //   observers = MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList();
-//
-////        for(MixedDrink observer : MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList())
-////        {
-////            observer.update(newIngredientName);
-////        }
-//    }
-
-//        ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
-//        instance.dataAdapter.add(drink);
-    }
-
-    public static void updateObservers(String newIngredientName)
-    {
-//        for(MixedDrink observer : observers)
-//        {
-//            observer.update(newIngredientName);
-//        }
-    }
-
-    public static void addObserver(MixedDrink mixedDrink)
-    {
-//        observers = new ArrayList<MixedDrink>();
-//        observers.add(mixedDrink);
-    }
 
 
 
