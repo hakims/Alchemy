@@ -1,5 +1,8 @@
 package com.dev.foundingfourfathers.alchemy.DrinkStrategies;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.dev.foundingfourfathers.alchemy.BasketPage;
 import com.dev.foundingfourfathers.alchemy.R;
 
@@ -20,7 +23,7 @@ public class MixedDrink extends Drink implements Observer {
         this.ingredients = ingredients;
 
         //Add this Mixed Drink as an observer
-        BasketPage.addObserver(this);
+        addObserver(this);
     }
 
     public ArrayList<Drink> getIngredients()
@@ -39,18 +42,43 @@ public class MixedDrink extends Drink implements Observer {
         ingredients.add(newIngredient);
     }
 
-    public void update(String basketItem)
+    public void updateAfterAdd(String basketItem)
     {
         //if basketItem is in the list of ingredients, update numAvailableIngredients.
+        Log.i("OBSERVER_TEST", "Am I here twice? " + numAvailableIngredientsInBasket + " " + basketItem);
 
-        Iterator iter = ingredients.iterator();
-        Drink ingredient;
-        while(iter.hasNext())
+        for(Drink ingredient: ingredients)
         {
-            ingredient = (Drink) iter.next();
+
             if(ingredient.getName().equals(basketItem))
+            {
                 numAvailableIngredientsInBasket++;
+                Log.i("OBSERVER_TEST", "numAvailable update: " + numAvailableIngredientsInBasket);
+            }
         }
+
+    }
+
+    public void updateAfterRemove(String basketItem)
+    {
+        //if basketItem is in the list of ingredients, update numAvailableIngredients.
+        for(Drink ingredient: ingredients)
+        {
+            if(ingredient.getName().equals(basketItem))
+            {
+                if(numAvailableIngredientsInBasket > 0)
+                    numAvailableIngredientsInBasket--;
+                Log.i("OBSERVER_TEST", "numAvailable update: " + numAvailableIngredientsInBasket);
+            }
+        }
+
+    }
+
+    public static void addObserver(MixedDrink mixedDrink)
+    {
+        MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
+        mixedDrinkListSingleton.addMixedDrink(mixedDrink);
+
     }
 
 

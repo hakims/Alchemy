@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
@@ -74,6 +75,7 @@ public class BasketPage extends ListActivity {
                 openContextMenu(view);
             }
         });
+
     }
 
     @Override
@@ -109,7 +111,7 @@ public class BasketPage extends ListActivity {
                 listItems.remove(menuInfo.position);
 
                 Drink drinkToRemove = basketContents.get(menuInfo.position);
-                basketContents.remove(drinkToRemove);
+                BasketListSingleton.removeIngredient(drinkToRemove);
 
                 onCreate(new Bundle());
                 break;
@@ -168,11 +170,31 @@ public class BasketPage extends ListActivity {
         startActivity(intent);
     }
 
-    public static void addNewIngredient(Drink drink)
-    {
-        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
-        basketListSingleton.addIngredient(drink);
-        updateObservers(drink.getName());
+//    public static void addNewIngredient(Drink drink)
+//    {
+//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+//        basketListSingleton.addIngredient(drink);
+//        //updateObservers(drink.getName());
+//
+//    }
+//
+//    public static void removeIngredient(Drink drink)
+//    {
+//        BasketListSingleton basketListSingleton = BasketListSingleton.getBasketListSingleton();
+//        basketListSingleton.removeIngredient(drink);
+//        //updateObservers(drink.getName());
+//
+//    }
+//
+//    public static void updateObservers(String newIngredientName)
+//    {
+//     //   observers = MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList();
+//
+////        for(MixedDrink observer : MixedDrinkListSingleton.getMixedDrinkListSingleton().getMixedDrinksList())
+////        {
+////            observer.update(newIngredientName);
+////        }
+//    }
 
 //        ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
 //        instance.dataAdapter.add(drink);

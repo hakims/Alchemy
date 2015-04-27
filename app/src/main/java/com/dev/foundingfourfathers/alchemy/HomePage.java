@@ -12,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.Drink;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrinkListSingleton;
+
+import java.util.ArrayList;
 
 
 public class HomePage extends Activity {
@@ -72,12 +77,21 @@ public class HomePage extends Activity {
         dbTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                database.insertAlcohol("Absolut Vodka");
-                String temp = database.getAllAlcohols();
+               // database.insertAlcohol("Absolut Vodka");
+               // String temp = database.getAllAlcohols();
+               // Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
 
+                MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
+                ArrayList<Drink> ingredients = new ArrayList<Drink>();
+                Drink tempDrink = new Drink("Vodka", false);
+                ingredients.add(tempDrink);
+                tempDrink = new Drink("Orange Juice", false);
+                ingredients.add(tempDrink);
+                MixedDrink screwdriver = new MixedDrink("Screwdriver", ingredients);
 
-                Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
+               // mixedDrinkListSingleton.addMixedDrink(screwdriver);
 
+                Toast.makeText(getApplicationContext(),"Observers: " + mixedDrinkListSingleton.printMixedDrinksList() + "Observers Size: " + mixedDrinkListSingleton.getMixedDrinksList().size(), Toast.LENGTH_LONG).show();
             }
         });
     }
