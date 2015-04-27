@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by alihakimi on 4/24/2015.
  */
-public class DrinkStrategy {
+public abstract class DrinkStrategy {
 
     public ArrayList<Drink> getDrinkList(){
 

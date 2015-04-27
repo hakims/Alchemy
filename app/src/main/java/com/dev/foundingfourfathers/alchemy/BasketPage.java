@@ -43,7 +43,6 @@ public class BasketPage extends ListActivity {
 //    private ListView listView = null;
 
     private Button b_home;
-    private Button b_remove;
 
 
 
@@ -72,15 +71,6 @@ public class BasketPage extends ListActivity {
         }
         setListAdapter(basketListAdapter);
 
-//        b_home = (Button) findViewById(R.id.button_toHome);
-//        b_home.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent myIntent = new Intent(view.getContext(), HomePage.class);
-//                startActivityForResult(myIntent, 0);
-//            }
-//        });
-
         listView = getListView();
         registerForContextMenu(listView);
 
@@ -93,27 +83,6 @@ public class BasketPage extends ListActivity {
                 openContextMenu(view);
             }
         });
-
-//        b_remove = (Button) findViewById(R.id.button_remove);
-//        b_remove.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
-//                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
-////                final int position = instance.listView.getPositionForView((View) view.getParent());
-//                int firstPosition = 0;
-////
-//                Drink firstDrinkInBasket = basketContents.get(firstPosition);
-//                if (firstDrinkInBasket != null) {
-//                    basketContents.remove(firstDrinkInBasket);
-//                    listItems.remove(firstPosition);
-//                    onCreate(savedInstanceState);
-////                    instance.dataAdapter.notifyDataSetChanged();
-////                    instance.notifyFunction();
-//                }
-////
-//            }
-//        });
 
     }
 
