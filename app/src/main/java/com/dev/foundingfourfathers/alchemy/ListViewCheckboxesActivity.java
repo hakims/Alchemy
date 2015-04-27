@@ -1,11 +1,13 @@
 package com.dev.foundingfourfathers.alchemy;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -36,6 +38,9 @@ public class ListViewCheckboxesActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         drinkType = getIntent().getStringExtra("DRINK_TYPE");
 
         //Generate list View from ArrayList
@@ -43,6 +48,24 @@ public class ListViewCheckboxesActivity extends Activity {
 
         checkButtonClick();
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent intent = new Intent(this, HomePage.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(this, BasketPage.class);
+        startActivity(intent);
     }
 
     //changed from private

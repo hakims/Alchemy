@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
@@ -40,13 +39,6 @@ public class BasketPage extends ListActivity {
     ListView listView = null;
 
 
-//    private ListView listView = null;
-
-    private Button b_home;
-
-
-
-
     @Override
     public void onCreate(final Bundle savedInstanceState)
     {
@@ -54,7 +46,6 @@ public class BasketPage extends ListActivity {
         setContentView(R.layout.activity_basket_page);
 
         ActionBar actionBar = getActionBar();
-//        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         //get current items in basket
@@ -83,7 +74,6 @@ public class BasketPage extends ListActivity {
                 openContextMenu(view);
             }
         });
-
     }
 
     @Override
@@ -116,9 +106,6 @@ public class BasketPage extends ListActivity {
         switch (item.getItemId()) {
 
             case CONTEXTMENU_OPTION1:
-//                ListViewCheckboxesActivity instance = new ListViewCheckboxesActivity();
-//                ListViewCheckboxesActivity.DrinkAdapter myDataAdapter = instance.dataAdapter;
-//                myDataAdapter.remove(myDataAdapter.getItem(menuInfo.position));
                 listItems.remove(menuInfo.position);
 
                 Drink drinkToRemove = basketContents.get(menuInfo.position);
@@ -174,6 +161,11 @@ public class BasketPage extends ListActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
     }
 
     public static void addNewIngredient(Drink drink)
