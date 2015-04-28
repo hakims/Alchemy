@@ -1,13 +1,10 @@
 package com.dev.foundingfourfathers.alchemy.DrinkStrategies;
 
 import android.util.Log;
-import android.widget.Toast;
 
-import com.dev.foundingfourfathers.alchemy.BasketPage;
 import com.dev.foundingfourfathers.alchemy.R;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by alihakimi on 4/25/2015.
@@ -133,7 +130,7 @@ public class MixedDrink extends Drink implements Observer {
     static ArrayList<Drink> bloodyMaryItems = generateIngredients(BloodyMaryIngredients);
 
     public static final MixedDrink[] ALL_MIXED_DRINKS = {
-            new MixedDrink(R.drawable.long_island, "Long Island Ice Tea", longIslandItems),
+            new MixedDrink(R.drawable.long_island, "Long Island Iced Tea", longIslandItems),
             new MixedDrink(R.drawable.moscow_mule, "Moscow Mule"),
             new MixedDrink(R.drawable.rum_and_coke, "Rum and Coke"),
             new MixedDrink(R.drawable.screwdriver, "Screwdriver"),

@@ -153,25 +153,25 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
                 "• Top with ginger beer. \n" +
                 "• Garnish.";
 
-        String frozenMargaritaRecipe = "Ingredients:\n• 3 parts White Tequilla\n" +
+        String frozenMargaritaRecipe = "Ingredients:\n• 3 parts White Tequila\n" +
                 "• 1 part Triple Sec\n" +
                 "• 2 parts Lime Juice\n" +
                 "• Crushed Ice\n" +
                 "• Salt\n\n" +
                 "Glass:\n• Margarita or Cocktail\n\n" +
                 "Garnish:\n• Lime\n\n" +
-                "Directions:\n• Pour Tequilla, Triple Sec, Lime Juice, and Crushed Ice into blender.\n" +
+                "Directions:\n• Pour Tequila, Triple Sec, Lime Juice, and Crushed Ice into blender.\n" +
                 "• Blend well on high speed\n" +
                 "• Rub rim of glass with lime wedge, and dip glass into Salt to coat rim. \n" +
                 "• Pour blended mix into glass.\n\n" +
                 "Note:\n• Can add different fruits before blending for fruity Margarita.";
 
-        String longIslandIceTeaRecipe = "Ingredients:\n• 1 part Vodka\n" +
-                "• 1 part Tequilla\n" +
+        String longIslandIcedTeaRecipe = "Ingredients:\n• 1 part Vodka\n" +
+                "• 1 part Tequila\n" +
                 "• 1 part Light Rum\n" +
                 "• 1 part Gin\n" +
                 "• 1 part Triple Sec\n" +
-                "• 1.5 part Sweet and Sour mix\n" +
+                "• 1.5 part Sour mix\n" +
                 "• 1 splash Coke\n\n" +
                 "Glass:\n• Highball\n\n" +
                 "Garnish:\n• Lemon\n\n" +
@@ -262,8 +262,8 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
             case "Frozen Margarita":
                 textView.setText(frozenMargaritaRecipe);
                 break;
-            case "Long Island Ice Tea":
-                textView.setText(longIslandIceTeaRecipe);
+            case "Long Island Iced Tea":
+                textView.setText(longIslandIcedTeaRecipe);
                 break;
             case "Moscow Mule":
                 textView.setText(moscowMuleRecipe);
