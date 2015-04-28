@@ -48,8 +48,9 @@ public class PossibleDrinksTransitionFragment extends Fragment implements Adapte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         MixedDrink mixedDrink = dAdapter.getItem(position);
-        Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
+//        Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
         // We start the fragment transaction here. It is just an ordinary fragment transaction.
+        Log.i("Drink", "Drink = " + mixedDrink.getName());
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.possible_drinks_fragment,

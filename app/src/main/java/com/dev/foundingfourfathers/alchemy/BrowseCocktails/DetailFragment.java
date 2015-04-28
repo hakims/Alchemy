@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.transition.Scene;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,8 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
     private static final String ARG_WIDTH = "width";
     private static final String ARG_HEIGHT = "height";
 
+    public static String DRINK = "";
+
     /**
      * Create a new instance of DetailFragment.
      *
@@ -66,7 +69,11 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
         args.putInt(ARG_WIDTH, width);
         args.putInt(ARG_HEIGHT, height);
         fragment.setArguments(args);
+
+        DRINK = title;
+
         return fragment;
+
     }
 
     public DetailFragment() {
@@ -74,7 +81,60 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+
+        View myInflatedView = inflater.inflate(R.layout.fragment_detail_content, container,false);
+
+        return myInflatedView;
+    }
+
+    public void setText(String drinkName){
+        TextView textView = (TextView) getView().findViewById(R.id.body);
+
+        Log.i("Drink", "Drink name: " + drinkName);
+
+        //Hard coded strings are added below until we get our database working
+
+        String mojitoRecipe = "Ingredients:\n• 2 parts Light Rum\n• 1 part Simple Syrup\n" +
+                "• 1 part Lime Juice\n• 2 parts Club Soda\n• 6 Mint Leaves\n\nGlass:\n• Highball\n\n" +
+                "Garnish:\n• Lime\n\nDirections:\n• Muddle (crush) the Mint Leaves in shaker.\n" +
+                "• Add Simple Syrup, Lime Juice, and Light Rum to shaker and fill with ice.\n" +
+                "• Shake well and pour unstrained into glass.\n" +
+                "• Top with Club Soda and Garnish.";
+        String hurricaneRecipe = "Ingredients:\n• 1 part Vodka\n" +
+                "• 1 part Gin\n" +
+                "• 1 part Light Rum\n" +
+                "• 1/2 part Dark Rum\n" +
+                "• 1 part Almond Liqueur \n" +
+                "• 1 part Triple Sec\n" +
+                "• Grapefruit Juice\n" +
+                "• Pineapple Juice\n" +
+                "• Grenadine Syrup\n\n" +
+                "Glass Type:\n• Hurricane\n\n" +
+                "Garnish:\n• Pineapple\n\n" +
+                "Directions:\n• Pour all alcohols into glass, 3/4 filled with ice.\n" +
+                "• Fill with equal parts of Grapefruit Juice and Pineapple Juice.\n" +
+                "• Add dash of Grenadine Syrup, stir, and Garnish.";
+
+        String rumAndCokeRecipe = "Ingredients:\n• 2 parts Dark Rum\n• Coke\n\n" +
+                "Glass:\n• Rocks\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Fill glass with ice.\n" +
+                "• Add Rum, top with Coke, and Garnish.";
+
+
+        switch (drinkName) {
+            case "Mojito":
+                textView.setText(mojitoRecipe);
+                break;
+            case "Hurricane":
+                textView.setText(hurricaneRecipe);
+                break;
+            case "Rum and Coke":
+                textView.setText(rumAndCokeRecipe);
+                break;
+            default:
+                textView.setText("Drink Recipe");
+        }
     }
 
     @Override
@@ -144,11 +204,13 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
         // This method is called at the end of the animation for the fragment transaction,
         // which is perfect time to start our Transition.
         //Log.i(TAG, "Fragment animation ended. Starting a Transition.");
+
         final Scene scene = Scene.getSceneForLayout((ViewGroup) getView(),
                 R.layout.fragment_detail_content, getActivity());
         TransitionManager.go(scene);
         // Note that we need to bind views with data after we call TransitionManager.go().
         bind(scene.getSceneRoot());
+        setText(DRINK);
     }
 
     @Override

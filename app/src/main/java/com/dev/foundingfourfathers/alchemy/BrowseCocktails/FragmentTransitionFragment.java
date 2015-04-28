@@ -64,7 +64,8 @@ public class FragmentTransitionFragment extends Fragment implements AdapterView.
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         MixedDrink mixedDrink = ((BrowseCocktailsAdapter)dAdapter).getItem(position);
-        Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
+//        Log.i(TAG, mixedDrink.getName() + " clicked. Replacing fragment.");
+        Log.i("Drink", "Drink = " + mixedDrink.getName());
         // We start the fragment transaction here. It is just an ordinary fragment transaction.
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
@@ -77,6 +78,7 @@ public class FragmentTransitionFragment extends Fragment implements AdapterView.
                 // previous fragment by pressing back button.
                 .addToBackStack("detail")
                 .commit();
+
     }
 
     @Override
@@ -84,5 +86,4 @@ public class FragmentTransitionFragment extends Fragment implements AdapterView.
         return AnimationUtils.loadAnimation(getActivity(),
                 enter ? android.R.anim.fade_in : android.R.anim.fade_out);
     }
-
 }

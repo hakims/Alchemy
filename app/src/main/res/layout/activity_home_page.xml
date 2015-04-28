@@ -21,40 +21,28 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Database"
-        android:id="@+id/b_dbTest"
-        android:layout_alignTop="@+id/b_toBasket"
-        android:layout_alignLeft="@+id/b_toBrowseCocktails"
-        android:layout_alignStart="@+id/b_toBrowseCocktails" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="What Drinks Can I Make?"
         android:id="@+id/button_make_drink"
+        android:layout_marginBottom="42dp"
         android:layout_above="@+id/b_toBasket"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="44dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Browse Cocktails"
         android:id="@+id/b_toBrowseCocktails"
-        android:layout_alignBaseline="@+id/b_toBasket"
-        android:layout_alignBottom="@+id/b_toBasket"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/image_logo"
+        android:layout_alignEnd="@+id/image_logo"
+        android:layout_alignTop="@+id/b_toBasket" />
 
     <ImageView
         android:layout_width="400dp"
         android:layout_height="400dip"
         android:id="@+id/image_logo"
         android:src="@drawable/alchemy_logo"
-        android:layout_alignLeft="@+id/button_make_drink"
-        android:layout_alignStart="@+id/button_make_drink"
         android:layout_above="@+id/button_make_drink"
-        android:layout_alignRight="@+id/b_dbTest"
-        android:layout_alignEnd="@+id/b_dbTest" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

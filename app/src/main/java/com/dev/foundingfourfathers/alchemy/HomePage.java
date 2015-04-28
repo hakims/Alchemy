@@ -9,18 +9,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
-import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrinkListSingleton;
 
 
 public class HomePage extends Activity {
 
     AlchemyDB database;
     private ImageButton b_toBasket;
-    private Button dbTest;
+//    private Button dbTest;
     private Button b_make_drink;
 
     private Button b_toBrowseCocktails;
@@ -72,27 +70,27 @@ public class HomePage extends Activity {
             }
         });
 
-        dbTest = (Button) findViewById(R.id.b_dbTest);
-        dbTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // database.insertAlcohol("Absolut Vodka");
-               // String temp = database.getAllAlcohols();
-               // Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
-
-                MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
-//                ArrayList<Drink> ingredients = new ArrayList<Drink>();
-//                Drink tempDrink = new Drink("Vodka", false);
-//                ingredients.add(tempDrink);
-//                tempDrink = new Drink("Orange Juice", false);
-//                ingredients.add(tempDrink);
-//                MixedDrink screwdriver = new MixedDrink("Screwdriver", ingredients);
-
-               // mixedDrinkListSingleton.addMixedDrink(screwdriver);
-
-                Toast.makeText(getApplicationContext(),"Observers: " + mixedDrinkListSingleton.printMixedDrinksList() + "Ingredients: " + mixedDrinkListSingleton.getMixedDrinksList().get(0).printIngredients(), Toast.LENGTH_LONG).show();
-            }
-        });
+//        dbTest = (Button) findViewById(R.id.b_dbTest);
+//        dbTest.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//               // database.insertAlcohol("Absolut Vodka");
+//               // String temp = database.getAllAlcohols();
+//               // Toast.makeText(getApplicationContext(),"First thing in alcohol list is: " + temp, Toast.LENGTH_LONG).show();
+//
+//                MixedDrinkListSingleton mixedDrinkListSingleton = MixedDrinkListSingleton.getMixedDrinkListSingleton();
+////                ArrayList<Drink> ingredients = new ArrayList<Drink>();
+////                Drink tempDrink = new Drink("Vodka", false);
+////                ingredients.add(tempDrink);
+////                tempDrink = new Drink("Orange Juice", false);
+////                ingredients.add(tempDrink);
+////                MixedDrink screwdriver = new MixedDrink("Screwdriver", ingredients);
+//
+//               // mixedDrinkListSingleton.addMixedDrink(screwdriver);
+//
+//                Toast.makeText(getApplicationContext(),"Observers: " + mixedDrinkListSingleton.printMixedDrinksList() + "Ingredients: " + mixedDrinkListSingleton.getMixedDrinksList().get(0).printIngredients(), Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
 
