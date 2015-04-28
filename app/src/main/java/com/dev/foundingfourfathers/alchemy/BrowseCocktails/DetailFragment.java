@@ -99,7 +99,7 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
                 "Garnish:\n• Lime\n\nDirections:\n• Muddle (crush) the Mint Leaves in shaker.\n" +
                 "• Add Simple Syrup, Lime Juice, and Light Rum to shaker and fill with ice.\n" +
                 "• Shake well and pour unstrained into glass.\n" +
-                "• Top with Club Soda and Garnish.";
+                "• Top with Club Soda and garnish.";
         String hurricaneRecipe = "Ingredients:\n• 1 part Vodka\n" +
                 "• 1 part Gin\n" +
                 "• 1 part Light Rum\n" +
@@ -113,13 +113,131 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
                 "Garnish:\n• Pineapple\n\n" +
                 "Directions:\n• Pour all alcohols into glass, 3/4 filled with ice.\n" +
                 "• Fill with equal parts of Grapefruit Juice and Pineapple Juice.\n" +
-                "• Add dash of Grenadine Syrup, stir, and Garnish.";
+                "• Add dash of Grenadine Syrup, stir, and garnish.";
 
         String rumAndCokeRecipe = "Ingredients:\n• 2 parts Dark Rum\n• Coke\n\n" +
                 "Glass:\n• Rocks\n\n" +
                 "Garnish:\n• Lime\n\n" +
                 "Directions:\n• Fill glass with ice.\n" +
-                "• Add Rum, top with Coke, and Garnish.";
+                "• Add Rum, top with Coke, and garnish.";
+
+        String bayBreezeRecipe = "Ingredients:\n• 3 parts Vodka\n" +
+                "• 1 part Cranberry Juice\n" +
+                "• 1 part Pineapple Juice\n\n" +
+                "Glass:\n• Highball\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Combine all ingredients in glass with ice.\n" +
+                "• Garnish.\n\n" +
+                "Note:\n" +
+                "• Sub Vodka with Coconut Rum for Malibu Bay Breeze.";
+
+        String bloodyMaryRecipe = "Ingredients:\n• 3 parts Vodka\n" +
+                "• 6 parts Tomato Juice\n" +
+                "• 1 part Lemon Juice\n" +
+                "• Salt and Pepper\n" +
+                "• Hot Sauce\n" +
+                "• Worchestershire Sauce\n\n" +
+                "Glass:\n• Highball\n\n" +
+                "Garnish:\n• Celery Stalk\n" +
+                "• Lemon\n\n" +
+                "Directions:\n• Add dashes of Worchestershire Sauce, Tobasco, Salt, and Pepper into glass.\n" +
+                "• Pour all other ingredients into glass.\n" +
+                "• Add ice and stir gently.\n" +
+                "• Garnish.";
+
+        String darkAndStormyRecipe = "Ingredients:\n• 1 part Dark Rum\n" +
+                "• 2 parts Ginger Beer\n\n" +
+                "Glass:\n• Old Fashioned\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Pour Dark Rum over ice in glass.\n" +
+                "• Top with ginger beer. \n" +
+                "• Garnish.";
+
+        String frozenMargaritaRecipe = "Ingredients:\n• 3 parts White Tequilla\n" +
+                "• 1 part Triple Sec\n" +
+                "• 2 parts Lime Juice\n" +
+                "• Crushed Ice\n" +
+                "• Salt\n\n" +
+                "Glass:\n• Margarita or Cocktail\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Pour Tequilla, Triple Sec, Lime Juice, and Crushed Ice into blender.\n" +
+                "• Blend well on high speed\n" +
+                "• Rub rim of glass with lime wedge, and dip glass into Salt to coat rim. \n" +
+                "• Pour blended mix into glass.\n\n" +
+                "Note:\n• Can add different fruits before blending for fruity Margarita.";
+
+        String longIslandIceTeaRecipe = "Ingredients:\n• 1 part Vodka\n" +
+                "• 1 part Tequilla\n" +
+                "• 1 part Light Rum\n" +
+                "• 1 part Gin\n" +
+                "• 1 part Triple Sec\n" +
+                "• 1.5 part Sweet and Sour mix\n" +
+                "• 1 splash Coke\n\n" +
+                "Glass:\n• Highball\n\n" +
+                "Garnish:\n• Lemon\n\n" +
+                "Directions:\n• Mix ingredients in shaker over ice. \n" +
+                "• Pour into glass, adding extra ice as needed.\n" +
+                "• Garnish.";
+
+        String moscowMuleRecipe = "Ingredients:\n• 2 parts Vodka\n" +
+                "• 3 parts Ginger Beer\n" +
+                "• 1 part Lime Juice\n\n" +
+                "Glass:\n• Copper Cup\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Fill glass with ice.\n" +
+                "• Add all ingredients to glass and mix.\n" +
+                "• Garnish.";
+
+        String pinaColadaRecipe = "Ingredients:\n• 2 parts Light Rum\n" +
+                "• 2 parts Coconut Cream\n" +
+                "• 2 parts Pineapple Juice\n\n" +
+                "Glass:\n• Hurricane\n\n" +
+                "Garnish:\n• Cherry and Pineapple\n\n" +
+                "Directions:\n• Add all ingredients into blender with crushed ice.\n" +
+                "• Blend on high, until well blended. \n" +
+                "• Add to glass and garnish.\n\n" +
+                "Note:\n• Can be done \"on-the-rocks\" instead of blended.";
+
+        String screwdriverRecipe = "Ingredients:\n• 2 Parts Vodka\n" +
+                "• Orange Juice\n\n" +
+                "Glass:\n• Highball\n\n" +
+                "Garnish:\n• Orange Slice\n\n" +
+                "Directions:\n• Fill glass with ice.\n" +
+                "• Add Vodka, top with Orange Juice, and garnish.";
+
+        String sevenAndSevenRecipe = "Ingredients:\n• 2 parts Whiskey\n" +
+                "• Lemon-Lime Soda\n\n" +
+                "Glass:\n• Old Fashioned\n\n" +
+                "Garnish:\n• None\n\n" +
+                "Directions:\n• Fill glass with ice.\n" +
+                "• Add Whiskey and top with Lemon-Lime Soda.\n\n" +
+                "Note:\n • Seagram's Seven Whiskey and 7-UP Soda is recommended for this.";
+
+        String ginAndTonicRecipe = "Ingredients:\n• 1 part Gin\n" +
+                "• 2 parts Tonic\n\n" +
+                "Glass:\n• Highball or Rocks\n\n" +
+                "Garnish:\n• Lime\n\n" +
+                "Directions:\n• Pour ingredients in glass with ice.\n" +
+                "• Mix and garnish.\n\n" +
+                "Note:\n• Change amounts to taste.";
+
+        String sexOnTheBeachRecipe = "Ingredients:\n• 2 parts Vodka\n" +
+                "• 1 part Peach Schnapps\n" +
+                "• 2 parts Cranberry Juice\n" +
+                "• 2 parts Orange Juice\n\n" +
+                "Glass:\n• Highball\n\n" +
+                "Garnish\n• Cherry and Orange Slice\n\n" +
+                "Directions:\n• Add all ingredients to glass and mix.\n" +
+                "• Fill with ice and garnish.\n\n" +
+                "Note:\n• Pineapple Juice can be substituted for Orange Juice";
+
+        String whiskeySourRecipe = "Ingredients:\n• 2 parts Whiskey\n" +
+                "• 4 parts Sour Mix\n\n" +
+                "Glass:\n• Old Fashioned\n\n" +
+                "Garnish\n• Cherry\n\n" +
+                "Directions:\n• Combine ingredients in glass.\n" +
+                "• Top with ice and garnish.";
+
 
 
         switch (drinkName) {
@@ -131,6 +249,42 @@ public class DetailFragment extends Fragment implements Animation.AnimationListe
                 break;
             case "Rum and Coke":
                 textView.setText(rumAndCokeRecipe);
+                break;
+            case "Bay Breeze":
+                textView.setText(bayBreezeRecipe);
+                break;
+            case "Bloody Mary":
+                textView.setText(bloodyMaryRecipe);
+                break;
+            case "Dark and Stormy":
+                textView.setText(darkAndStormyRecipe);
+                break;
+            case "Frozen Margarita":
+                textView.setText(frozenMargaritaRecipe);
+                break;
+            case "Long Island Ice Tea":
+                textView.setText(longIslandIceTeaRecipe);
+                break;
+            case "Moscow Mule":
+                textView.setText(moscowMuleRecipe);
+                break;
+            case "Pina Colada":
+                textView.setText(pinaColadaRecipe);
+                break;
+            case "Screwdriver":
+                textView.setText(screwdriverRecipe);
+                break;
+            case "Seven and Seven":
+                textView.setText(sevenAndSevenRecipe);
+                break;
+            case "Gin and Tonic":
+                textView.setText(ginAndTonicRecipe);
+                break;
+            case "Sex on the Beach":
+                textView.setText(sexOnTheBeachRecipe);
+                break;
+            case "Whiskey Sour":
+                textView.setText(whiskeySourRecipe);
                 break;
             default:
                 textView.setText("Drink Recipe");
