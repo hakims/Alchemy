@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.dev.foundingfourfathers.alchemy.BrowseCocktails.BrowseCocktails;
+import com.dev.foundingfourfathers.alchemy.DrinkStrategies.BasketListSingleton;
 import com.dev.foundingfourfathers.alchemy.DrinkStrategies.MixedDrink;
 
 
@@ -56,8 +58,17 @@ public class HomePage extends Activity {
         b_make_drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), PossibleDrinksActivity.class);
-                startActivityForResult(myIntent, 0);
+                if(BasketListSingleton.getBasketListSingleton().getBasketContents().size() <1)
+                {
+                    Intent myIntent = new Intent(view.getContext(), BasketPage.class);
+                    startActivityForResult(myIntent, 0);
+                    Toast.makeText(getApplicationContext(), "You have nothing in your Basket! Add some ingredients first!", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    Intent myIntent = new Intent(view.getContext(), PossibleDrinksActivity.class);
+                    startActivityForResult(myIntent, 0);
+                }
             }
         });
 
